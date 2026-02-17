@@ -6,26 +6,48 @@ on:
           - xctestleaks-report
     workflow_dispatch: {}
 
-env:
-    xcode_version: 16.2
-    ios_version: 18.2
-    ios_simulator_default: Testing Phone 18
-
 jobs:
     run-leak-detection:
         name: Run Leak Detection
         runs-on: macos-15
         timeout-minutes: 240
+
+        defaults:
+          run:
+            working-directory: iOS
+
         steps:
             - name: Check out source code
               uses: actions/checkout@v4.1.7
               with:
                 submodules: recursive
 
-            - name: Setup Xcode
+            - name: Select Xcode
+              uses: ./.github/actions/select-xcode-version
+
+            - name: Select iOS Simulator
+              id: select-simulator
+              uses: ./.github/actions/select-ios-simulator
+              with:
+                preferred-versions: "18.6,18.2"
+
+            - name: Set cache key hash
               run: |
-                sudo xcode-select -s /Applications/Xcode_${{ env.xcode_version }}.app/Contents/Developer
-                xcodebuild -version
+                has_only_tags=$(jq '[ .pins[].state | has("version") ] | all' DuckDuckGo-iOS.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved)
+                if [[ "$has_only_tags" == "true" ]]; then
+                  echo "cache_key_hash=${{ hashFiles('iOS/DuckDuckGo-iOS.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}" >> $GITHUB_ENV
+                else
+                  echo "Package.resolved contains dependencies specified by branch or commit, skipping cache."
+                fi
+
+            - name: Cache SPM
+              if: env.cache_key_hash
+              uses: actions/cache@v4
+              with:
+                path: iOS/DerivedData/SourcePackages
+                key: ${{ runner.os }}-ios-${{ env.cache_key_hash }}
+                restore-keys: |
+                  ${{ runner.os }}-ios-
 
             - name: Install XCTestLeaks
               run: brew install amanjeetsingh150/xctestleaks/xctestleaks
@@ -33,17 +55,12 @@ jobs:
             - name: Print version of XCTestLeaks
               run: xctestleaks --version
 
-            - name: Create simulator
-              run: |
-                xcrun simctl create "${{ env.ios_simulator_default }}" "iPhone 16 Pro" "com.apple.CoreSimulator.SimRuntime.iOS-18-2" || true
-                xcrun simctl boot "${{ env.ios_simulator_default }}" || true
-
             - name: Run XCTestLeaks
               run: |
                 xctestleaks run \
-                  --project ./iOS/DuckDuckGo-iOS.xcodeproj \
+                  --project ./DuckDuckGo-iOS.xcodeproj \
                   --scheme "iOS Unit Tests" \
-                  --destination "platform=iOS Simulator,OS=${{ env.ios_version }},name=${{ env.ios_simulator_default }}" \
+                  --destination "${{ steps.select-simulator.outputs.destination }}" \
                   --output-dir ./leak_artifacts \
                   --html-output \
                   --timeout=14400
@@ -53,5 +70,5 @@ jobs:
               uses: actions/upload-artifact@v4.3.4
               with:
                 name: xctestleaks-report-${{ github.run_number }}
-                path: ./leak_artifacts/
+                path: iOS/leak_artifacts/
                 retention-days: 90
