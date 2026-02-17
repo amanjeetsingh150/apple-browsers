@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XCTestLeaks Report</title>
+    <style>
+        :root {
+            --bg-primary: #1a1a2e;
+            --bg-secondary: #16213e;
+            --bg-card: #0f3460;
+            --text-primary: #eaeaea;
+            --text-secondary: #a0a0a0;
+            --accent-red: #e94560;
+            --accent-orange: #f39c12;
+            --accent-green: #27ae60;
+            --accent-blue: #3498db;
+            --border-color: #2a2a4a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timestamp {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .test-name-header {
+            color: var(--accent-blue);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .test-name-header strong {
+            color: var(--text-primary);
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .summary-card {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .summary-card .number {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .summary-card .label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .summary-card.danger .number { color: var(--accent-red); }
+        .summary-card.warning .number { color: var(--accent-orange); }
+        .summary-card.success .number { color: var(--accent-green); }
+        .summary-card.info .number { color: var(--accent-blue); }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title .badge {
+            background: var(--accent-red);
+            color: white;
+            font-size: 0.8rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+        }
+
+        .leak-card {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .leak-header {
+            background: var(--bg-card);
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .leak-header:hover {
+            background: #1a4a7a;
+        }
+
+        .leak-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .leak-meta {
+            display: flex;
+            gap: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .leak-type {
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .leak-type.cycle {
+            background: var(--accent-orange);
+            color: #000;
+        }
+
+        .leak-type.leak {
+            background: var(--accent-red);
+            color: #fff;
+        }
+
+        .test-name {
+            background: var(--accent-blue);
+            color: #fff;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        .leak-body {
+            padding: 1.5rem;
+            display: none;
+        }
+
+        .leak-card.expanded .leak-body {
+            display: block;
+        }
+
+        .leak-card.expanded .leak-header {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .tab {
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .tab:hover {
+            background: var(--bg-card);
+            color: var(--text-primary);
+        }
+
+        .tab.active {
+            background: var(--accent-blue);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        pre {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'SF Mono', 'Menlo', 'Monaco', monospace;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .children-list {
+            margin-top: 1rem;
+        }
+
+        .child-item {
+            background: var(--bg-primary);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            margin-bottom: 0.5rem;
+            font-family: 'SF Mono', monospace;
+            font-size: 0.85rem;
+        }
+
+        .child-count {
+            color: var(--accent-blue);
+        }
+
+        .child-size {
+            color: var(--accent-orange);
+        }
+
+        .child-field {
+            color: var(--accent-green);
+        }
+
+        .child-type {
+            color: var(--text-primary);
+        }
+
+        .process-info {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .process-info dl {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 0.5rem 1rem;
+        }
+
+        .process-info dt {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .process-info dd {
+            font-family: 'SF Mono', monospace;
+        }
+
+        .expand-icon {
+            transition: transform 0.2s;
+        }
+
+        .leak-card.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+
+        .no-leaks {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-secondary);
+        }
+
+        .no-leaks .icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .summary-card .number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔍 XCTestLeaks Report</h1>
+            <p class="timestamp">Generated: 2026-02-18 00:10:02</p>
+        </header>
+
+        <div class="summary-grid">
+            <div class="summary-card danger">
+                <div class="number">2</div>
+                <div class="label">Total Leaks</div>
+            </div>
+            <div class="summary-card warning">
+                <div class="number">2</div>
+                <div class="label">Retain Cycles</div>
+            </div>
+            <div class="summary-card success">
+                <div class="number">0</div>
+                <div class="label">Root Leaks</div>
+            </div>
+            <div class="summary-card info">
+                <div class="number">2</div>
+                <div class="label">Artifacts</div>
+            </div>
+        </div>
+
+        
+        <div class="section">
+            <h2 class="section-title">Process Information</h2>
+            <div class="process-info">
+                <dl><dt>Process</dt><dd>DuckDuckGo [99806]</dd>
+<dt>Path</dt><dd>/Users/amanjeetsingh/Library/Developer/CoreSimulator/Devices/34311C86-C804-499D-8416-CF98F0DD40B2/data/Containers/Bundle/Application/635081FE-B16F-46DB-A218-F9A417218721/DuckDuckGo.app/DuckDuckGo</dd>
+<dt>Load Address</dt><dd>0x104f44000</dd>
+<dt>Identifier</dt><dd>DuckDuckGo</dd>
+<dt>Version</dt><dd>???</dd>
+<dt>Code Type</dt><dd>ARM64</dd>
+<dt>Platform</dt><dd>iOS Simulator</dd>
+<dt>Parent Process</dt><dd>launchd_sim [93659]</dd>
+<dt>Date/Time</dt><dd>2026-02-18 00:05:15.538 +0530</dd>
+<dt>Launch Time</dt><dd>2026-02-18 00:05:09.423 +0530</dd>
+<dt>OS Version</dt><dd>iPhone OS 18.2 (22C150)</dd>
+<dt>Report Version</dt><dd>7</dd>
+<dt>Analysis Tool</dt><dd>/Library/Developer/CoreSimulator/Volumes/iOS_22C150/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 18.2.simruntime/Contents/Resources/RuntimeRoot/usr/bin/leaks</dd>
+<dt>Analysis Tool Version</dt><dd>iOS Simulator 18.2 (22C150)</dd>
+<dt>Physical footprint</dt><dd>258.8M</dd>
+<dt>Physical footprint (peak)</dt><dd>271.8M</dd>
+<dt>Idle exit</dt><dd>untracked</dd>
+<dt>leaks Report Version</dt><dd>4.0</dd></dl>
+            </div>
+        </div>
+        
+
+        
+        <div class="section">
+            <h2 class="section-title">
+                Memory Leaks
+                <span class="badge">2</span>
+            </h2>
+            
+            <div class="leak-card">
+                <div class="leak-header">
+                    <div>
+                        <span class="leak-type cycle">RETAIN CYCLE</span>
+                        <span class="leak-title">Download</span>
+                        <span class="test-name">📋 -[DownloadManagerTests testDownloadListUniqueFilenames]</span>
+                    </div>
+                    <div class="leak-meta">
+                        <span>5 instance(s)</span>
+                        <span>960 bytes</span>
+                        <span class="expand-icon">▼</span>
+                    </div>
+                </div>
+                <div class="leak-body">
+                    <div class="tabs">
+                        <button class="tab active" data-tab="info-0">Info</button>
+                        <button class="tab" data-tab="raw-0">Raw Output</button>
+                        <button class="tab" data-tab="json-0">JSON</button>
+                    </div>
+                    <div id="info-0" class="tab-content active">
+                        <p><strong>Test:</strong> -[DownloadManagerTests testDownloadListUniqueFilenames]</p>
+                        <p><strong>Type:</strong> Download</p>
+                        <p><strong>Instance Size:</strong> 208 bytes</p>
+                        
+                <div class="children-list">
+                    <h4>Children (5)</h4>
+                    
+                    <div class="child-item">
+                        <span class="child-count">4</span>
+                        <span class="child-size">(752 bytes)</span>
+                        <span class="child-field">session</span> →
+                        <span class="child-type">MockDownloadSession</span>
+                        [80 bytes]
+                    </div>
+                    
+
+                    <div class="child-item">
+                        <span class="child-count">0</span>
+                        <span class="child-size">()</span>
+                        <span class="child-field"></span> →
+                        <span class="child-type">Download</span>
+                        [208 bytes]
+                    </div>
+                    
+
+                    <div class="child-item">
+                        <span class="child-count">3</span>
+                        <span class="child-size">(672 bytes)</span>
+                        <span class="child-field">temporaryFilePath</span> →
+                        <span class="child-type">NSURL</span>
+                        [96 bytes]
+                    </div>
+                    
+
+                    <div class="child-item">
+                        <span class="child-count">1</span>
+                        <span class="child-size">(320 bytes)</span>
+                        <span class="child-field"></span> →
+                        <span class="child-type"></span>
+                        [320 bytes]
+                    </div>
+                    
+
+                    <div class="child-item">
+                        <span class="child-count">1</span>
+                        <span class="child-size">(256 bytes)</span>
+                        <span class="child-field">_clients</span> →
+                        <span class="child-type">CFString</span>
+                        [256 bytes]
+                    </div>
+                    
+                </div>
+                
+                    </div>
+                    <div id="raw-0" class="tab-content">
+                        <pre>      5 (960 bytes) ROOT CYCLE: &lt;Download 0x6000039148f0&gt; [208]
+         4 (752 bytes) session --&gt; ROOT CYCLE: &lt;MockDownloadSession 0x6000021cf520&gt; [80]
+            delegate --&gt; CYCLE BACK TO &lt;Download 0x6000039148f0&gt; [208]
+            3 (672 bytes) temporaryFilePath --&gt; &lt;NSURL 0x600002683d20&gt; [96]
+               1 (320 bytes) &lt;_FileCache 0x12211a790&gt; [320]
+               1 (256 bytes) _clients --&gt; &lt;CFString 0x600003e21700&gt; [256]</pre>
+                    </div>
+                    <div id="json-0" class="tab-content">
+                        <pre>{
+    &quot;address&quot;: null,
+    &quot;sizeBytes&quot;: null,
+    &quot;type&quot;: &quot;Download&quot;,
+    &quot;stackTrace&quot;: [],
+    &quot;rawLines&quot;: [
+        &quot;      5 (960 bytes) ROOT CYCLE: &lt;Download 0x6000039148f0&gt; [208]&quot;,
+        &quot;         4 (752 bytes) session --&gt; ROOT CYCLE: &lt;MockDownloadSession 0x6000021cf520&gt; [80]&quot;,
+        &quot;            delegate --&gt; CYCLE BACK TO &lt;Download 0x6000039148f0&gt; [208]&quot;,
+        &quot;            3 (672 bytes) temporaryFilePath --&gt; &lt;NSURL 0x600002683d20&gt; [96]&quot;,
+        &quot;               1 (320 bytes) &lt;_FileCache 0x12211a790&gt; [320]&quot;,
+        &quot;               1 (256 bytes) _clients --&gt; &lt;CFString 0x600003e21700&gt; [256]&quot;
+    ],
+    &quot;leakType&quot;: &quot;ROOT_CYCLE&quot;,
+    &quot;rootCount&quot;: 5,
+    &quot;rootSizeHumanReadable&quot;: &quot;960 bytes&quot;,
+    &quot;rootTypeName&quot;: &quot;Download&quot;,
+    &quot;rootInstanceSizeBytes&quot;: 208,
+    &quot;children&quot;: [
+        {
+            &quot;count&quot;: 4,
+            &quot;sizeHumanReadable&quot;: &quot;752 bytes&quot;,
+            &quot;fieldName&quot;: &quot;session&quot;,
+            &quot;typeName&quot;: &quot;MockDownloadSession&quot;,
+            &quot;instanceSizeBytes&quot;: 80
+        },
+        {
+            &quot;count&quot;: 0,
+            &quot;sizeHumanReadable&quot;: &quot;&quot;,
+            &quot;fieldName&quot;: &quot;&quot;,
+            &quot;typeName&quot;: &quot;Download&quot;,
+            &quot;instanceSizeBytes&quot;: 208
+        },
+        {
+            &quot;count&quot;: 3,
+            &quot;sizeHumanReadable&quot;: &quot;672 bytes&quot;,
+            &quot;fieldName&quot;: &quot;temporaryFilePath&quot;,
+            &quot;typeName&quot;: &quot;NSURL&quot;,
+            &quot;instanceSizeBytes&quot;: 96
+        },
+        {
+            &quot;count&quot;: 1,
+            &quot;sizeHumanReadable&quot;: &quot;320 bytes&quot;,
+            &quot;fieldName&quot;: &quot;&quot;,
+            &quot;typeName&quot;: &quot;&quot;,
+            &quot;instanceSizeBytes&quot;: 320
+        },
+        {
+            &quot;count&quot;: 1,
+            &quot;sizeHumanReadable&quot;: &quot;256 bytes&quot;,
+            &quot;fieldName&quot;: &quot;_clients&quot;,
+            &quot;typeName&quot;: &quot;CFString&quot;,
+            &quot;instanceSizeBytes&quot;: 256
+        }
+    ],
+    &quot;testName&quot;: &quot;-[DownloadManagerTests testDownloadListUniqueFilenames]&quot;
+}</pre>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="leak-card">
+                <div class="leak-header">
+                    <div>
+                        <span class="leak-type cycle">RETAIN CYCLE</span>
+                        <span class="leak-title">MockDownloadSession</span>
+                        <span class="test-name">📋 -[DownloadManagerTests testDownloadListUniqueFilenames]</span>
+                    </div>
+                    <div class="leak-meta">
+                        <span>2 instance(s)</span>
+                        <span>288 bytes</span>
+                        <span class="expand-icon">▼</span>
+                    </div>
+                </div>
+                <div class="leak-body">
+                    <div class="tabs">
+                        <button class="tab active" data-tab="info-1">Info</button>
+                        <button class="tab" data-tab="raw-1">Raw Output</button>
+                        <button class="tab" data-tab="json-1">JSON</button>
+                    </div>
+                    <div id="info-1" class="tab-content active">
+                        <p><strong>Test:</strong> -[DownloadManagerTests testDownloadListUniqueFilenames]</p>
+                        <p><strong>Type:</strong> MockDownloadSession</p>
+                        <p><strong>Instance Size:</strong> 80 bytes</p>
+                        
+                <div class="children-list">
+                    <h4>Children (2)</h4>
+                    
+                    <div class="child-item">
+                        <span class="child-count">1</span>
+                        <span class="child-size">(208 bytes)</span>
+                        <span class="child-field">delegate</span> →
+                        <span class="child-type">Download</span>
+                        [208 bytes]
+                    </div>
+                    
+
+                    <div class="child-item">
+                        <span class="child-count">0</span>
+                        <span class="child-size">()</span>
+                        <span class="child-field"></span> →
+                        <span class="child-type">MockDownloadSession</span>
+                        [80 bytes]
+                    </div>
+                    
+                </div>
+                
+                    </div>
+                    <div id="raw-1" class="tab-content">
+                        <pre>      2 (288 bytes) ROOT CYCLE: &lt;MockDownloadSession 0x6000021cf480&gt; [80]
+         1 (208 bytes) delegate --&gt; ROOT CYCLE: &lt;Download 0x600003920410&gt; [208]
+            session --&gt; CYCLE BACK TO &lt;MockDownloadSession 0x6000021cf480&gt; [80]</pre>
+                    </div>
+                    <div id="json-1" class="tab-content">
+                        <pre>{
+    &quot;address&quot;: null,
+    &quot;sizeBytes&quot;: null,
+    &quot;type&quot;: &quot;MockDownloadSession&quot;,
+    &quot;stackTrace&quot;: [],
+    &quot;rawLines&quot;: [
+        &quot;      2 (288 bytes) ROOT CYCLE: &lt;MockDownloadSession 0x6000021cf480&gt; [80]&quot;,
+        &quot;         1 (208 bytes) delegate --&gt; ROOT CYCLE: &lt;Download 0x600003920410&gt; [208]&quot;,
+        &quot;            session --&gt; CYCLE BACK TO &lt;MockDownloadSession 0x6000021cf480&gt; [80]&quot;
+    ],
+    &quot;leakType&quot;: &quot;ROOT_CYCLE&quot;,
+    &quot;rootCount&quot;: 2,
+    &quot;rootSizeHumanReadable&quot;: &quot;288 bytes&quot;,
+    &quot;rootTypeName&quot;: &quot;MockDownloadSession&quot;,
+    &quot;rootInstanceSizeBytes&quot;: 80,
+    &quot;children&quot;: [
+        {
+            &quot;count&quot;: 1,
+            &quot;sizeHumanReadable&quot;: &quot;208 bytes&quot;,
+            &quot;fieldName&quot;: &quot;delegate&quot;,
+            &quot;typeName&quot;: &quot;Download&quot;,
+            &quot;instanceSizeBytes&quot;: 208
+        },
+        {
+            &quot;count&quot;: 0,
+            &quot;sizeHumanReadable&quot;: &quot;&quot;,
+            &quot;fieldName&quot;: &quot;&quot;,
+            &quot;typeName&quot;: &quot;MockDownloadSession&quot;,
+            &quot;instanceSizeBytes&quot;: 80
+        }
+    ],
+    &quot;testName&quot;: &quot;-[DownloadManagerTests testDownloadListUniqueFilenames]&quot;
+}</pre>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+
+        <footer>
+            Generated by <strong>XCTestLeaks</strong> • Memory leak detection for iOS
+        </footer>
+    </div>
+
+    <script>
+        // Toggle leak card expansion
+        document.querySelectorAll('.leak-header').forEach(header => {
+            header.addEventListener('click', () => {
+                header.parentElement.classList.toggle('expanded');
+            });
+        });
+
+        // Tab switching
+        document.querySelectorAll('.tabs').forEach(tabContainer => {
+            tabContainer.querySelectorAll('.tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const targetId = tab.dataset.tab;
+                    const card = tab.closest('.leak-card');
+
+                    // Update active tab
+                    tabContainer.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+
+                    // Update active content
+                    card.querySelectorAll('.tab-content').forEach(content => {
+                        content.classList.toggle('active', content.id === targetId);
+                    });
+                });
+            });
+        });
+
+        // Expand all leaks by default if there are few
+        if (document.querySelectorAll('.leak-card').length <= 5) {
+            document.querySelectorAll('.leak-card').forEach(card => {
+                card.classList.add('expanded');
+            });
+        }
+    </script>
+</body>
+</html>

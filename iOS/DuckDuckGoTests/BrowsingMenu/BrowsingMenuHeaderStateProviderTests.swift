@@ -20,7 +20,7 @@
 import XCTest
 @testable import DuckDuckGo
 
-final class BrowsingMenuHeaderStateProviderTests: XCTestCase {
+final class BrowsingMenuHeaderStateProviderTests: LeakCheckableTestCase {
 
     private var sut: BrowsingMenuHeaderStateProvider!
     private var dataSource: BrowsingMenuHeaderDataSource!

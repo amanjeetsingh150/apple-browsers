@@ -24,7 +24,7 @@ import DesignResourcesKit
 
 // MARK: - ToolbarHandlerTests
 
-class ToolbarHandlerTests: XCTestCase {
+class ToolbarHandlerTests: LeakCheckableTestCase {
 
     var toolbarHandler: ToolbarHandler!
     var mockToolbar: UIToolbar!

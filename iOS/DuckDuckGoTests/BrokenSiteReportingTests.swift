@@ -27,7 +27,7 @@ import PrivacyDashboard
 @testable import DuckDuckGo
 import PersistenceTestingUtils
 
-final class BrokenSiteReportingTests: XCTestCase {
+final class BrokenSiteReportingTests: LeakCheckableTestCase {
     private let data = JsonTestDataLoader()
     private let host = "improving.duckduckgo.com"
     private let testAgent = "Test Agent"

@@ -22,7 +22,7 @@ import Core
 
 @testable import DuckDuckGo
 
-final class TabInteractionStateDiskSourceTests: XCTestCase {
+final class TabInteractionStateDiskSourceTests: LeakCheckableTestCase {
 
     var sut: TabInteractionStateDiskSource!
     private let mockFileManager = MockFileManager()

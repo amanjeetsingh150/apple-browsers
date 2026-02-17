@@ -21,7 +21,7 @@ import XCTest
 @testable import DuckDuckGo
 @testable import BrowserServicesKit
 
-final class AutofillLoginPromptViewModelTests: XCTestCase {
+final class AutofillLoginPromptViewModelTests: LeakCheckableTestCase {
 
     func testWhenOnePerfectMatchAndNoPartialMatchesThenOnePerfectMatchShownAndMoreOptionsNotShown() {
         let accountMatches = AccountMatches(perfectMatches: [websiteAccountFor(domain: "example.com")],

@@ -26,7 +26,7 @@ import WebKit
 import Subscription
 @testable import DuckDuckGo
 
-final class AIChatContentHandlerTests: XCTestCase {
+final class AIChatContentHandlerTests: LeakCheckableTestCase {
 
     var handler: AIChatContentHandler!
     var mockSettings: MockAIChatSettingsProvider!

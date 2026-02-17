@@ -23,7 +23,7 @@ import Persistence
 @testable import DuckDuckGo
 
 @MainActor
-final class ScopedFireConfirmationViewModelTests: XCTestCase {
+final class ScopedFireConfirmationViewModelTests: LeakCheckableTestCase {
     
     private var mockDownloadManager: SpyDownloadManager!
     private var mockKeyValueStore: MockKeyValueStore!

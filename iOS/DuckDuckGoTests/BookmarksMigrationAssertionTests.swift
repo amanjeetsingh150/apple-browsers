@@ -22,7 +22,7 @@ import XCTest
 @testable import DuckDuckGo
 @testable import Core
 
-class BookmarksMigrationAssertionTests: XCTestCase {
+class BookmarksMigrationAssertionTests: LeakCheckableTestCase {
     
     override func setUp() async throws {
         try await super.setUp()

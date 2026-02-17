@@ -21,7 +21,7 @@ import XCTest
 import Core
 @testable import DuckDuckGo
 
-final class TabSwitcherOpenDailyPixelTests: XCTestCase {
+final class TabSwitcherOpenDailyPixelTests: LeakCheckableTestCase {
     func testPopulatesParameters() {
         let tabs = [Tab(), Tab(), Tab()]
         let pixel = TabSwitcherOpenDailyPixel()

@@ -20,7 +20,7 @@
 import XCTest
 @testable import DuckDuckGo
 
-class DownloadsListDataSourceTests: XCTestCase {
+class DownloadsListDataSourceTests: LeakCheckableTestCase {
     var sut: DownloadsListDataSource!
     var spyDownloadManager: SpyDownloadManager!
     

@@ -35,7 +35,7 @@ private extension FavoritesListViewModel {
     }
 }
 
-class FavoriteListViewModelTests: XCTestCase {
+class FavoriteListViewModelTests: LeakCheckableTestCase {
     
     var db: CoreDataDatabase!
     

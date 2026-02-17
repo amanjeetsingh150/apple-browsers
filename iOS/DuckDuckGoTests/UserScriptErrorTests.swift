@@ -22,7 +22,7 @@ import enum UserScript.UserScriptError
 @testable import Core
 @testable import BrowserServicesKit
 
-final class UserScriptErrorTests: XCTestCase {
+final class UserScriptErrorTests: LeakCheckableTestCase {
 
     func testfireLoadJSFailedPixelIfNeeded_FiresExpectedPixel() async throws {
         let jsFile = "testFile"

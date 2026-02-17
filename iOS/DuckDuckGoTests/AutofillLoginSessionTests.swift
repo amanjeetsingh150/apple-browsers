@@ -22,7 +22,7 @@ import XCTest
 @testable import DuckDuckGo
 @testable import BrowserServicesKit
 
-final class AutofillLoginSessionTests: XCTestCase {
+final class AutofillLoginSessionTests: LeakCheckableTestCase {
 
     private var autofillSession = AutofillLoginSession(sessionTimeout: 2)
 

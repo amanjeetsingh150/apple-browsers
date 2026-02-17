@@ -24,7 +24,7 @@ import PersistenceTestingUtils
 @testable import Core
 @testable import DuckDuckGo
 
-class BookmarkStateRepairTests: XCTestCase {
+class BookmarkStateRepairTests: LeakCheckableTestCase {
 
     let dbStack = MockBookmarksDatabase.make(prepareFolderStructure: false)
 

@@ -47,7 +47,7 @@ struct RefTests: Decodable {
     let domainTests: DomainTests
 }
 
-class DomainMatchingTests: XCTestCase {
+class DomainMatchingTests: LeakCheckableTestCase {
     private var data = JsonTestDataLoader()
 
     func testDomainMatchingRules() throws {

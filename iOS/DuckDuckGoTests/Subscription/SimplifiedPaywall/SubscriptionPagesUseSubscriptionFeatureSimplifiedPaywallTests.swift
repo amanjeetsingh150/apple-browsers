@@ -29,7 +29,7 @@ import PrivacyConfig
 import PixelKitTestingUtilities
 import NetworkingTestingUtils
 
-final class SubscriptionPagesUseSubscriptionFeatureSimplifiedPaywallTests: XCTestCase {
+final class SubscriptionPagesUseSubscriptionFeatureSimplifiedPaywallTests: LeakCheckableTestCase {
 
     private var sut: (any SubscriptionPagesUseSubscriptionFeature)!
 

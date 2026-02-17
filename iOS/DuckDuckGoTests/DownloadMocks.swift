@@ -23,8 +23,7 @@ import WebKit
 @testable import DuckDuckGo
 
 class MockDownloadSession: DownloadSession {
-    // swiftlint:disable:next weak_delegate
-    var delegate: DuckDuckGo.DownloadSessionDelegate?
+    weak var delegate: DuckDuckGo.DownloadSessionDelegate?
 
     var temporaryFilePath: URL?
     var error: Error?

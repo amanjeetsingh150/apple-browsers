@@ -27,7 +27,7 @@ import Combine
 @testable import UserScript
 
 @MainActor
-class DuckPlayerUserScriptYoutubeTests: XCTestCase {
+class DuckPlayerUserScriptYoutubeTests: LeakCheckableTestCase {
     
     var mockDuckPlayer: MockDuckPlayer!
     var mockWebView: MockWebView!

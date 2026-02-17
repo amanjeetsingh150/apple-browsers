@@ -31,7 +31,7 @@ import Common
 @testable import DuckDuckGo
 @testable import Core
 
-final class OnboardingNavigationDelegateTests: XCTestCase {
+final class OnboardingNavigationDelegateTests: LeakCheckableTestCase {
 
     var mainVC: MainViewController!
     var onboardingPixelReporter: OnboardingPixelReporterMock!

@@ -27,7 +27,7 @@ import WebKit
 @testable import AIChat
 
 // swiftlint:disable inclusive_language
-class AIChatUserScriptHandlerTests: XCTestCase {
+class AIChatUserScriptHandlerTests: LeakCheckableTestCase {
     var aiChatUserScriptHandler: AIChatUserScriptHandler!
     var mockFeatureFlagger: MockFeatureFlagger!
     var mockPayloadHandler: AIChatPayloadHandler!

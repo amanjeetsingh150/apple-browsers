@@ -20,7 +20,7 @@
 import XCTest
 @testable import DuckDuckGo
 
-final class SubscriptionFlowTypeTests: XCTestCase {
+final class SubscriptionFlowTypeTests: LeakCheckableTestCase {
 
     // MARK: - Navigation Title Tests
 

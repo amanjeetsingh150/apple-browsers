@@ -23,7 +23,7 @@ import XCTest
 import Combine
 import PersistenceTestingUtils
 
-final class SwitchBarHandlerTests: XCTestCase {
+final class SwitchBarHandlerTests: LeakCheckableTestCase {
 
     private enum StorageKey {
         static let toggleState = "SwitchBarHandler.toggleState"

@@ -27,7 +27,7 @@ import PrivacyConfigTestsUtils
 import TrackerRadarKit
 
 // Temporary disabled since flaky 
-final class ConfigurationManagerTests: XCTestCase {
+final class ConfigurationManagerTests: LeakCheckableTestCase {
     private var operationLog: OperationLog!
     private var configManager: ConfigurationManager!
     private var mockFetcher: MockConfigurationFetcher!

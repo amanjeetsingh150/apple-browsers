@@ -22,7 +22,7 @@ import XCTest
 
 @testable import DuckDuckGo
 
-final class AdAttributionPixelReporterTests: XCTestCase {
+final class AdAttributionPixelReporterTests: LeakCheckableTestCase {
 
     private var attributionFetcher: AdAttributionFetcherMock!
     private var fetcherStorage: AdAttributionReporterStorageMock!

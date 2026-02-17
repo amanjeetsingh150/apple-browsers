@@ -21,7 +21,7 @@ import XCTest
 @testable import DuckDuckGo
 @testable import Core
 
-final class DaxEasterEggLogoStoreTests: XCTestCase {
+final class DaxEasterEggLogoStoreTests: LeakCheckableTestCase {
 
     private let testSuiteName = "test.dax.easter.egg.logo.store"
     private var store: DaxEasterEggLogoStore!

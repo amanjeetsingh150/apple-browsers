@@ -25,7 +25,7 @@ import Combine
 import WebKit
 @testable import DuckDuckGo
 
-final class AIChatContextualSheetCoordinatorTests: XCTestCase {
+final class AIChatContextualSheetCoordinatorTests: LeakCheckableTestCase {
 
     // MARK: - Mocks
 

@@ -23,7 +23,7 @@ import CoreData
 import Bookmarks
 import DuckDuckGo
 
-class BookmarkUtilsTests: XCTestCase {
+class BookmarkUtilsTests: LeakCheckableTestCase {
     
     var db: CoreDataDatabase!
     

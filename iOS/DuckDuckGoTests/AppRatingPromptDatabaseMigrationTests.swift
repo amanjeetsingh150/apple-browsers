@@ -24,7 +24,7 @@ import CoreData
 import Persistence
 
 // If making future changes take a copy of the v2 momd and Database file like here and update / add tests as appropiate.
-class AppRatingPromptDatabaseMigrationTests: XCTestCase {
+class AppRatingPromptDatabaseMigrationTests: LeakCheckableTestCase {
 
     func testExpectedNumberOfModelVersionsInLatestModel() throws {
         guard let modelURL = Bundle.main.url(forResource: "AppRatingPrompt", withExtension: "momd") else {

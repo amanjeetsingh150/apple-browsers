@@ -21,7 +21,7 @@ import Foundation
 import XCTest
 @testable import Core
 
-class RunLoopExtensionTests: XCTestCase {
+class RunLoopExtensionTests: LeakCheckableTestCase {
 
     func testWhenConditionResolvedThenNoWaitIsPerformed() {
         let condition = RunLoop.ResumeCondition()

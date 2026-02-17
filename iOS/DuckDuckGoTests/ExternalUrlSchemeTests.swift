@@ -20,7 +20,7 @@
 import XCTest
 @testable import Core
 
-class ExternalUrlSchemeTests: XCTestCase {
+class ExternalUrlSchemeTests: LeakCheckableTestCase {
 
     func testThatEmailIsSupported() {
         let url = URL(string: "mailto://someurl")!

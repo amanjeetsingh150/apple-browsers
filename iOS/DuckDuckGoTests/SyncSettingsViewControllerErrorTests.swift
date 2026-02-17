@@ -27,7 +27,7 @@ import Common
 import SyncUI_iOS
 import SecureStorage
 
-final class SyncSettingsViewControllerErrorTests: XCTestCase {
+final class SyncSettingsViewControllerErrorTests: LeakCheckableTestCase {
 
     var cancellables: Set<AnyCancellable>!
     var vc: SyncSettingsViewController!

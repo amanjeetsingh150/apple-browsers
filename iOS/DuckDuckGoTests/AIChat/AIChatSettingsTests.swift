@@ -26,7 +26,7 @@ import AIChat
 import Persistence
 import PersistenceTestingUtils
 
-class AIChatSettingsTests: XCTestCase {
+class AIChatSettingsTests: LeakCheckableTestCase {
 
     private var mockPrivacyConfigurationManager: PrivacyConfigurationManagerMock!
     private var mockKeyValueStore: KeyValueStoring!

@@ -27,7 +27,7 @@ import Common
 import Subscription
 import PixelKit
 
-final class SubscriptionPixelHandlerTests: XCTestCase {
+final class SubscriptionPixelHandlerTests: LeakCheckableTestCase {
 
     private struct FiredPixel {
         let name: String

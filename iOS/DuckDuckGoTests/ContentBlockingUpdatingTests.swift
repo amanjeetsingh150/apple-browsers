@@ -41,7 +41,7 @@ class FireproofingMock: Fireproofing {
     func clearAll() {}
 }
 
-final class ContentBlockingUpdatingTests: XCTestCase {
+final class ContentBlockingUpdatingTests: LeakCheckableTestCase {
     let appSettings = AppSettingsMock()
     let configManager = PrivacyConfigurationManagerMock()
     let rulesManager = ContentBlockerRulesManagerMock()

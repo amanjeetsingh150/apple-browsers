@@ -23,7 +23,7 @@ import PrivacyConfig
 @testable import DuckDuckGo
 @testable import Core
 
-class AppUserDefaultsTests: XCTestCase {
+class AppUserDefaultsTests: LeakCheckableTestCase {
 
     let testGroupName = "test"
     var internalUserDeciderStore: MockInternalUserStoring!

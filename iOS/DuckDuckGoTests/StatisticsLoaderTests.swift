@@ -23,7 +23,7 @@ import OHHTTPStubsSwift
 @testable import Core
 @testable import BrowserServicesKit
 
-class StatisticsLoaderTests: XCTestCase {
+class StatisticsLoaderTests: LeakCheckableTestCase {
 
     var mockStatisticsStore: StatisticsStore!
     var mockUsageSegmentation: MockUsageSegmentation!

@@ -19,7 +19,7 @@
 
 import XCTest
 
-final class LocalizationTests: XCTestCase {
+final class LocalizationTests: LeakCheckableTestCase {
 
 #if targetEnvironment(simulator)
     func testNoDuplicateLocalizationKeys() throws {

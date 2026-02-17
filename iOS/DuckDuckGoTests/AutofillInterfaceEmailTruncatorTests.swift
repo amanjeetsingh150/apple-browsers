@@ -21,7 +21,7 @@ import XCTest
 import Core
 @testable import DuckDuckGo
 
-class AutofillInterfaceEmailTruncatorTests: XCTestCase {
+class AutofillInterfaceEmailTruncatorTests: LeakCheckableTestCase {
 
     func testRegularSizeEmailWithoutTruncating() {
         let email = "daxtheduck@duck.com"

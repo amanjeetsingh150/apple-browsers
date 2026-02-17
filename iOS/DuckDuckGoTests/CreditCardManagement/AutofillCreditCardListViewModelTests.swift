@@ -23,7 +23,7 @@ import Core
 import BrowserServicesKit
 import Combine
 
-final class AutofillCreditCardListViewModelTests: XCTestCase {
+final class AutofillCreditCardListViewModelTests: LeakCheckableTestCase {
     
     private var mockViewModel: MockCreditCardListViewModel!
     

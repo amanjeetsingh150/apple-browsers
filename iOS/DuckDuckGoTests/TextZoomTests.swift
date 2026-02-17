@@ -24,7 +24,7 @@ import Core
 import XCTest
 import WebKit
 
-final class TextZoomTests: XCTestCase {
+final class TextZoomTests: LeakCheckableTestCase {
 
     let viewScaleKey = "viewScale"
 

@@ -27,7 +27,7 @@ import BrowserServicesKitTestsUtils
 import Combine
 
 @MainActor
-final class TabManagerTests: XCTestCase {
+final class TabManagerTests: LeakCheckableTestCase {
 
     func testWhenClosingOnlyOpenTabThenASingleEmptyTabIsAdded() async throws {
 

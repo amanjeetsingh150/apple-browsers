@@ -23,7 +23,7 @@ import NetworkExtension
 import VPNTestUtils
 @testable import DuckDuckGo
 
-final class NetworkProtectionVPNLocationViewModelTests: XCTestCase {
+final class NetworkProtectionVPNLocationViewModelTests: LeakCheckableTestCase {
     private var listRepository: MockNetworkProtectionLocationListRepository!
     private var settings: VPNSettings!
     private var viewModel: NetworkProtectionVPNLocationViewModel!

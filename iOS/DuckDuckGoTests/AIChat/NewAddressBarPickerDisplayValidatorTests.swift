@@ -27,7 +27,7 @@ import PersistenceTestingUtils
 import AIChat
 @testable import DuckDuckGo
 
-final class NewAddressBarPickerDisplayValidatorTests: XCTestCase {
+final class NewAddressBarPickerDisplayValidatorTests: LeakCheckableTestCase {
     private var mockAIChatSettings: MockAIChatSettingsProvider!
     private var mockFeatureFlagger: MockFeatureFlagger!
     private var mockAppSettings: AppSettingsMock!

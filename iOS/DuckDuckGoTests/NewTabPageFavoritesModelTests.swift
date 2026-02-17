@@ -23,7 +23,7 @@ import Bookmarks
 @testable import Core
 @testable import DuckDuckGo
 
-final class NewTabPageFavoritesModelTests: XCTestCase {
+final class NewTabPageFavoritesModelTests: LeakCheckableTestCase {
     private let favoriteDataSource = MockNewTabPageFavoriteDataSource()
 
     override func tearDown() {

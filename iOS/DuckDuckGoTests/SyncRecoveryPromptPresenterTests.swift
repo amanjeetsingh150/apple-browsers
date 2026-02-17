@@ -23,7 +23,7 @@ import Core
 @testable import DuckDuckGo
 
 @MainActor
-final class SyncRecoveryPromptPresenterTests: XCTestCase {
+final class SyncRecoveryPromptPresenterTests: LeakCheckableTestCase {
 
     private var sut: SyncRecoveryPromptPresenter!
     private var mockViewController: UIViewController!

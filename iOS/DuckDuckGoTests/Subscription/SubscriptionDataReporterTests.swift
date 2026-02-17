@@ -26,7 +26,7 @@ import BrowserServicesKit
 import PrivacyConfig
 import PrivacyConfigTestsUtils
 
-final class SubscriptionDataReporterTests: XCTestCase {
+final class SubscriptionDataReporterTests: LeakCheckableTestCase {
     let testConfig = """
     {
         "readme": "https://github.com/duckduckgo/privacy-configuration",

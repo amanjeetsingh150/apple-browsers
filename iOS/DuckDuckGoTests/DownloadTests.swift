@@ -20,7 +20,7 @@
 import XCTest
 @testable import DuckDuckGo
 
-class DownloadTests: XCTestCase {
+class DownloadTests: LeakCheckableTestCase {
     private let downloadManagerTestsHelper = DownloadTestsHelper(downloadsDirectory: DownloadManager().downloadsDirectory)
     
     override func tearDownWithError() throws {

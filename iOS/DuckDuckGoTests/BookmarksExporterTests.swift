@@ -21,7 +21,7 @@ import XCTest
 @testable import Core
 
 @MainActor
-class BookmarksExporterTests: XCTestCase {
+class BookmarksExporterTests: LeakCheckableTestCase {
 
     private var storage = MockBookmarksDatabase.make()
     private var htmlLoader: HtmlTestDataLoader!

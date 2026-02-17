@@ -22,7 +22,7 @@ import XCTest
 import BrowserServicesKit
 import Core
 
-class ZipContentSelectionViewModelTests: XCTestCase {
+class ZipContentSelectionViewModelTests: LeakCheckableTestCase {
     var viewModel: ZipContentSelectionViewModel!
     fileprivate var mockDelegate: MockZipContentSelectionViewModelDelegate!
 

@@ -23,7 +23,7 @@ import SetDefaultBrowserTestSupport
 @testable import DuckDuckGo
 
 @MainActor
-final class OnboardingIntroViewModelTests: XCTestCase {
+final class OnboardingIntroViewModelTests: LeakCheckableTestCase {
     private var defaultBrowserManagerMock: MockDefaultBrowserManager!
     private var contextualDaxDialogs: ContextualOnboardingLogicMock!
     private var pixelReporterMock: OnboardingPixelReporterMock!

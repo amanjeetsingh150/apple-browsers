@@ -1,0 +1,6 @@
+      5 (960 bytes) ROOT CYCLE: <Download 0x6000039148f0> [208]
+         4 (752 bytes) session --> ROOT CYCLE: <MockDownloadSession 0x6000021cf520> [80]
+            delegate --> CYCLE BACK TO <Download 0x6000039148f0> [208]
+            3 (672 bytes) temporaryFilePath --> <NSURL 0x600002683d20> [96]
+               1 (320 bytes) <_FileCache 0x12211a790> [320]
+               1 (256 bytes) _clients --> <CFString 0x600003e21700> [256]

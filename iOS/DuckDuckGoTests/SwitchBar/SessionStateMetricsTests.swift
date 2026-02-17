@@ -21,7 +21,7 @@ import XCTest
 @testable import DuckDuckGo
 import PersistenceTestingUtils
 
-final class SessionStateMetricsTests: XCTestCase {
+final class SessionStateMetricsTests: LeakCheckableTestCase {
 
     var mockStorage: MockKeyValueStore!
     var sut: SessionStateMetrics!

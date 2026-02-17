@@ -24,7 +24,7 @@ import Bookmarks
 @testable import DuckDuckGo
 
 @MainActor
-class BookmarksMigrationTests: XCTestCase {
+class BookmarksMigrationTests: LeakCheckableTestCase {
     
     let destinationStack = MockBookmarksDatabase.make(prepareFolderStructure: false)
     var sourceStack: LegacyBookmarksCoreDataStorage!

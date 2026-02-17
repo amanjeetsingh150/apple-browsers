@@ -22,7 +22,7 @@ import XCTest
 @testable import DuckDuckGo
 import BrowserServicesKit
 
-final class AutofillNeverPromptWebsitesManagerTests: XCTestCase {
+final class AutofillNeverPromptWebsitesManagerTests: LeakCheckableTestCase {
 
     private var manager: AutofillNeverPromptWebsitesManager!
     private let vault = (try? MockSecureVaultFactory.makeVault(reporter: nil))!

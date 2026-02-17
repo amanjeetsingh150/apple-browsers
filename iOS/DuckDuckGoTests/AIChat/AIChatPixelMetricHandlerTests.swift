@@ -22,7 +22,7 @@ import XCTest
 @testable import DuckDuckGo
 import AIChat
 
-final class AIChatPixelMetricHandlerTests: XCTestCase {
+final class AIChatPixelMetricHandlerTests: LeakCheckableTestCase {
 
     private var handler: AIChatPixelMetricHandler!
 

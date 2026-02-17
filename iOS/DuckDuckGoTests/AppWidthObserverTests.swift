@@ -20,7 +20,7 @@
 import XCTest
 @testable import DuckDuckGo
 
-class AppWidthObserverTests: XCTestCase {
+class AppWidthObserverTests: LeakCheckableTestCase {
 
     func testWhenNotPadThenWillNotResizeOrReportAsLarge() {
         AppWidthObserver.shared.isPad = false

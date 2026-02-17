@@ -21,7 +21,7 @@ import XCTest
 import SwiftUI
 @testable import DuckDuckGo
 
-final class ContextualOnboardingPresenterTests: XCTestCase {
+final class ContextualOnboardingPresenterTests: LeakCheckableTestCase {
     private var contextualDaxDialogsFactory: ContextualDaxDialogsFactory!
 
     override func setUpWithError() throws {

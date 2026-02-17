@@ -23,7 +23,7 @@ import Persistence
 @testable import Core
 @testable import PersistenceTestingUtils
 
-class TabsModelPersistenceTests: XCTestCase {
+class TabsModelPersistenceTests: LeakCheckableTestCase {
 
     struct Constants {
         static let firstTitle = "a title"

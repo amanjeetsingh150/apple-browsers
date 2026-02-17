@@ -33,7 +33,7 @@ private extension MenuBookmarksViewModel {
     }
 }
 
-class MenuBookmarksViewModelTests: XCTestCase {
+class MenuBookmarksViewModelTests: LeakCheckableTestCase {
     
     let url = URL(string: "https://test.com")!
     var db: CoreDataDatabase!

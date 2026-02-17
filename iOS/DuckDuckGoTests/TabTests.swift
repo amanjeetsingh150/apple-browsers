@@ -23,7 +23,7 @@ import AIChat
 @testable import Core
 @testable import DuckDuckGo
 
-class TabTests: XCTestCase {
+class TabTests: LeakCheckableTestCase {
 
     struct Constants {
         static let title = "A title"

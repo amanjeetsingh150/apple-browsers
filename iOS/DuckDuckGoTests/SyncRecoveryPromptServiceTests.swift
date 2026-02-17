@@ -27,7 +27,7 @@ import SecureStorage
 @testable import DDGSync
 
 @MainActor
-final class SyncRecoveryPromptServiceTests: XCTestCase {
+final class SyncRecoveryPromptServiceTests: LeakCheckableTestCase {
 
     private var mockFeatureFlagger: MockFeatureFlagger!
     private var mockSyncService: MockDDGSyncing!

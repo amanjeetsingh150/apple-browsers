@@ -38,7 +38,7 @@ private extension BookmarkListViewModel {
     }
 }
 
-class BookmarkListViewModelTests: XCTestCase {
+class BookmarkListViewModelTests: LeakCheckableTestCase {
     
     var db: CoreDataDatabase!
     var mainContext: NSManagedObjectContext!

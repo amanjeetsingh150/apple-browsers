@@ -1,0 +1,33 @@
+{
+    "address": null,
+    "sizeBytes": null,
+    "type": "MockDownloadSession",
+    "stackTrace": [],
+    "rawLines": [
+        "      2 (288 bytes) ROOT CYCLE: <MockDownloadSession 0x6000021cf480> [80]",
+        "         1 (208 bytes) delegate --> ROOT CYCLE: <Download 0x600003920410> [208]",
+        "            session --> CYCLE BACK TO <MockDownloadSession 0x6000021cf480> [80]"
+    ],
+    "leakType": "ROOT_CYCLE",
+    "rootCount": 2,
+    "rootSizeHumanReadable": "288 bytes",
+    "rootTypeName": "MockDownloadSession",
+    "rootInstanceSizeBytes": 80,
+    "children": [
+        {
+            "count": 1,
+            "sizeHumanReadable": "208 bytes",
+            "fieldName": "delegate",
+            "typeName": "Download",
+            "instanceSizeBytes": 208
+        },
+        {
+            "count": 0,
+            "sizeHumanReadable": "",
+            "fieldName": "",
+            "typeName": "MockDownloadSession",
+            "instanceSizeBytes": 80
+        }
+    ],
+    "testName": "-[DownloadManagerTests testDownloadListUniqueFilenames]"
+}

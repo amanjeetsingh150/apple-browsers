@@ -1,0 +1,122 @@
+{
+    "params": {
+        "pid": null,
+        "processName": "DuckDuckGo",
+        "deviceId": "booted",
+        "excludeSymbols": []
+    },
+    "invocationTime": "2026-02-17T18:35:15.083008Z",
+    "leaks": [
+        {
+            "address": null,
+            "sizeBytes": null,
+            "type": "Download",
+            "stackTrace": [],
+            "rawLines": [
+                "      5 (960 bytes) ROOT CYCLE: <Download 0x6000039148f0> [208]",
+                "         4 (752 bytes) session --> ROOT CYCLE: <MockDownloadSession 0x6000021cf520> [80]",
+                "            delegate --> CYCLE BACK TO <Download 0x6000039148f0> [208]",
+                "            3 (672 bytes) temporaryFilePath --> <NSURL 0x600002683d20> [96]",
+                "               1 (320 bytes) <_FileCache 0x12211a790> [320]",
+                "               1 (256 bytes) _clients --> <CFString 0x600003e21700> [256]"
+            ],
+            "leakType": "ROOT_CYCLE",
+            "rootCount": 5,
+            "rootSizeHumanReadable": "960 bytes",
+            "rootTypeName": "Download",
+            "rootInstanceSizeBytes": 208,
+            "children": [
+                {
+                    "count": 4,
+                    "sizeHumanReadable": "752 bytes",
+                    "fieldName": "session",
+                    "typeName": "MockDownloadSession",
+                    "instanceSizeBytes": 80
+                },
+                {
+                    "count": 0,
+                    "sizeHumanReadable": "",
+                    "fieldName": "",
+                    "typeName": "Download",
+                    "instanceSizeBytes": 208
+                },
+                {
+                    "count": 3,
+                    "sizeHumanReadable": "672 bytes",
+                    "fieldName": "temporaryFilePath",
+                    "typeName": "NSURL",
+                    "instanceSizeBytes": 96
+                },
+                {
+                    "count": 1,
+                    "sizeHumanReadable": "320 bytes",
+                    "fieldName": "",
+                    "typeName": "",
+                    "instanceSizeBytes": 320
+                },
+                {
+                    "count": 1,
+                    "sizeHumanReadable": "256 bytes",
+                    "fieldName": "_clients",
+                    "typeName": "CFString",
+                    "instanceSizeBytes": 256
+                }
+            ],
+            "testName": "-[DownloadManagerTests testDownloadListUniqueFilenames]"
+        },
+        {
+            "address": null,
+            "sizeBytes": null,
+            "type": "MockDownloadSession",
+            "stackTrace": [],
+            "rawLines": [
+                "      2 (288 bytes) ROOT CYCLE: <MockDownloadSession 0x6000021cf480> [80]",
+                "         1 (208 bytes) delegate --> ROOT CYCLE: <Download 0x600003920410> [208]",
+                "            session --> CYCLE BACK TO <MockDownloadSession 0x6000021cf480> [80]"
+            ],
+            "leakType": "ROOT_CYCLE",
+            "rootCount": 2,
+            "rootSizeHumanReadable": "288 bytes",
+            "rootTypeName": "MockDownloadSession",
+            "rootInstanceSizeBytes": 80,
+            "children": [
+                {
+                    "count": 1,
+                    "sizeHumanReadable": "208 bytes",
+                    "fieldName": "delegate",
+                    "typeName": "Download",
+                    "instanceSizeBytes": 208
+                },
+                {
+                    "count": 0,
+                    "sizeHumanReadable": "",
+                    "fieldName": "",
+                    "typeName": "MockDownloadSession",
+                    "instanceSizeBytes": 80
+                }
+            ],
+            "testName": "-[DownloadManagerTests testDownloadListUniqueFilenames]"
+        }
+    ],
+    "summary": {
+        "Process": "DuckDuckGo [99806]",
+        "Path": "/Users/amanjeetsingh/Library/Developer/CoreSimulator/Devices/34311C86-C804-499D-8416-CF98F0DD40B2/data/Containers/Bundle/Application/635081FE-B16F-46DB-A218-F9A417218721/DuckDuckGo.app/DuckDuckGo",
+        "Load Address": "0x104f44000",
+        "Identifier": "DuckDuckGo",
+        "Version": "???",
+        "Code Type": "ARM64",
+        "Platform": "iOS Simulator",
+        "Parent Process": "launchd_sim [93659]",
+        "Date/Time": "2026-02-18 00:05:15.538 +0530",
+        "Launch Time": "2026-02-18 00:05:09.423 +0530",
+        "OS Version": "iPhone OS 18.2 (22C150)",
+        "Report Version": "7",
+        "Analysis Tool": "/Library/Developer/CoreSimulator/Volumes/iOS_22C150/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 18.2.simruntime/Contents/Resources/RuntimeRoot/usr/bin/leaks",
+        "Analysis Tool Version": "iOS Simulator 18.2 (22C150)",
+        "Physical footprint": "258.8M",
+        "Physical footprint (peak)": "271.8M",
+        "Idle exit": "untracked",
+        "leaks Report Version": "4.0"
+    },
+    "rawOutput": "Process:         DuckDuckGo [99806]\nPath:            /Users/amanjeetsingh/Library/Developer/CoreSimulator/Devices/34311C86-C804-499D-8416-CF98F0DD40B2/data/Containers/Bundle/Application/635081FE-B16F-46DB-A218-F9A417218721/DuckDuckGo.app/DuckDuckGo\nLoad Address:    0x104f44000\nIdentifier:      DuckDuckGo\nVersion:         ???\nCode Type:       ARM64\nPlatform:        iOS Simulator\nParent Process:  launchd_sim [93659]\n\nDate/Time:       2026-02-18 00:05:15.538 +0530\nLaunch Time:     2026-02-18 00:05:09.423 +0530\nOS Version:      iPhone OS 18.2 (22C150)\nReport Version:  7\nAnalysis Tool:   /Library/Developer/CoreSimulator/Volumes/iOS_22C150/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 18.2.simruntime/Contents/Resources/RuntimeRoot/usr/bin/leaks\nAnalysis Tool Version:  iOS Simulator 18.2 (22C150)\n\nPhysical footprint:         258.8M\nPhysical footprint (peak):  271.8M\nIdle exit:                  untracked\n----\n\nleaks Report Version: 4.0\nProcess 99806: 431013 nodes malloced for 48036 KB\nProcess 99806: 36 leaks for 8688 total leaked bytes.\n\n    36 (8.48K) << TOTAL >>\n\n      5 (960 bytes) ROOT CYCLE: <Download 0x6000039148f0> [208]\n         4 (752 bytes) session --> ROOT CYCLE: <MockDownloadSession 0x6000021cf520> [80]\n            delegate --> CYCLE BACK TO <Download 0x6000039148f0> [208]\n            3 (672 bytes) temporaryFilePath --> <NSURL 0x600002683d20> [96]\n               1 (320 bytes) <_FileCache 0x12211a790> [320]\n               1 (256 bytes) _clients --> <CFString 0x600003e21700> [256]\n\n      5 (960 bytes) ROOT CYCLE: <Download 0x600003915860> [208]\n         4 (752 bytes) session --> ROOT CYCLE: <MockDownloadSession 0x6000022cc280> [80]\n            delegate --> CYCLE BACK TO <Download 0x600003915860> [208]\n            3 (672 bytes) temporaryFilePath --> <NSURL 0x600002788240> [96]\n               1 (320 bytes) <_FileCache 0x113b17c20> [320]\n               1 (256 bytes) _clients --> <CFString 0x600003e0cd00> [256]\n\n      5 (960 bytes) ROOT CYCLE: <Download 0x600003915a00> [208]\n         4 (752 bytes) session --> ROOT CYCLE: <MockDownloadSession 0x6000022cc1e0> [80]\n            delegate --> CYCLE BACK TO <Download 0x600003915a00> [208]\n            3 (672 bytes) temporaryFilePath --> <NSURL 0x600002788300> [96]\n               1 (320 bytes) <_FileCache 0x113b180d0> [320]\n               1 (256 bytes) _clients --> <CFString 0x600003e0ce00> [256]\n\n      5 (960 bytes) ROOT CYCLE: <Download 0x60000391c410> [208]\n         4 (752 bytes) session --> ROOT CYCLE: <MockDownloadSession 0x6000022cc230> [80]\n            delegate --> CYCLE BACK TO <Download 0x60000391c410> [208]\n            3 (672 bytes) temporaryFilePath --> <NSURL 0x600002788360> [96]\n               1 (320 bytes) <_FileCache 0x113b18580> [320]\n               1 (256 bytes) _clients --> <CFString 0x600003e0cb00> [256]\n\n      3 (736 bytes) ROOT LEAK: <MockNavigationResponse 0x113b17ea0> [560]\n         2 (176 bytes) url --> <NSURL 0x600002959c70> [112]\n            1 (64 bytes) _clients --> <Swift.SharedStringStorage 0x600001a98800> [64]\n\n      3 (736 bytes) ROOT LEAK: <MockNavigationResponse 0x113b18350> [560]\n         2 (176 bytes) url --> <NSURL 0x60000295a370> [112]\n            1 (64 bytes) _clients --> <Swift.SharedStringStorage 0x600001a98940> [64]\n\n      3 (736 bytes) ROOT LEAK: <MockNavigationResponse 0x12211add0> [560]\n         2 (176 bytes) url --> <NSURL 0x600002936a00> [112]\n            1 (64 bytes) _clients --> <Swift.SharedStringStorage 0x600001a41480> [64]\n\n      2 (672 bytes) ROOT LEAK: <MockNavigationResponse 0x113b179f0> [560]\n         1 (112 bytes) url --> <NSURL 0x600002959960> [112]\n\n      1 (560 bytes) ROOT LEAK: <MockNavigationResponse 0x1139dbfd0> [560]\n      1 (560 bytes) ROOT LEAK: <MockNavigationResponse 0x113f0bf50> [560]\n      1 (560 bytes) ROOT LEAK: <MockNavigationResponse 0x12211b000> [560]\n\n      2 (288 bytes) ROOT CYCLE: <MockDownloadSession 0x6000021cf480> [80]\n         1 (208 bytes) delegate --> ROOT CYCLE: <Download 0x600003920410> [208]\n            session --> CYCLE BACK TO <MockDownloadSession 0x6000021cf480> [80]\n\n"
+}

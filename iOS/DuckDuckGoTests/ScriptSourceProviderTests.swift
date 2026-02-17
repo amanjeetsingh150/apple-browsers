@@ -24,7 +24,7 @@ import TrackerRadarKit
 @testable import DuckDuckGo
 import Combine
 
-final class ScriptSourceProviderTests: XCTestCase {
+final class ScriptSourceProviderTests: LeakCheckableTestCase {
 
     var experimentManager: MockContentScopeExperimentManager!
     let testExperimentData = ExperimentData(

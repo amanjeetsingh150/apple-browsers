@@ -23,7 +23,7 @@ import PrivacyConfig
 import PrivacyConfigTestsUtils
 @testable import Core
 
-final class AppURLsTests: XCTestCase {
+final class AppURLsTests: LeakCheckableTestCase {
 
     var mockStatisticsStore: MockStatisticsStore!
     var appConfig: PrivacyConfiguration!

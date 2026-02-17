@@ -21,7 +21,7 @@ import XCTest
 
 @testable import DuckDuckGo
 
-final class HomePageDisplayDailyPixelBucketTests: XCTestCase {
+final class HomePageDisplayDailyPixelBucketTests: LeakCheckableTestCase {
     func testBucketValues() {
         let ranges = [
             0...0: "0",

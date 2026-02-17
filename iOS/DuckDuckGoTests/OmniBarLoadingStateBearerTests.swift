@@ -20,7 +20,7 @@
 import XCTest
 @testable import DuckDuckGo
 
-final class OmniBarLoadingStateBearerTests: XCTestCase {
+final class OmniBarLoadingStateBearerTests: LeakCheckableTestCase {
 
     static let unaffectedByLoadingStates: [(OmniBarState & OmniBarLoadingBearerStateCreating).Type] = [
         SmallOmniBarState.BrowsingEmptyEditingState.self,

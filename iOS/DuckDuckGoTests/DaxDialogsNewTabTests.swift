@@ -21,7 +21,7 @@ import XCTest
 import TrackerRadarKit
 @testable import DuckDuckGo
 
-final class DaxDialogsNewTabTests: XCTestCase {
+final class DaxDialogsNewTabTests: LeakCheckableTestCase {
 
     var daxDialogs: DaxDialogs!
     var settings: DaxDialogsSettings!

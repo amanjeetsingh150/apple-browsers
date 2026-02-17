@@ -20,7 +20,7 @@
 import XCTest
 @testable import DuckDuckGo
 
-class DownloadsDirectoryHandlerTests: XCTestCase {
+class DownloadsDirectoryHandlerTests: LeakCheckableTestCase {
     var handler: DownloadsDirectoryHandler!
 
     override func setUp() {

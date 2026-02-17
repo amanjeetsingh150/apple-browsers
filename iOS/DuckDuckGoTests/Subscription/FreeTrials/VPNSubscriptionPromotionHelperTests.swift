@@ -24,7 +24,7 @@ import PersistenceTestingUtils
 import SubscriptionTestingUtilities
 @testable import DuckDuckGo
 
-final class VPNSubscriptionPromotionHelperTests: XCTestCase {
+final class VPNSubscriptionPromotionHelperTests: LeakCheckableTestCase {
 
     private var sut: VPNSubscriptionPromotionHelping!
     private var mockFeatureFlagger: MockFeatureFlagger!

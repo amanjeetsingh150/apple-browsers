@@ -24,7 +24,7 @@ import WebKit
 @testable import Core
 @testable import DuckDuckGo
 
-class EmbeddedTrackerDataTests: XCTestCase {
+class EmbeddedTrackerDataTests: LeakCheckableTestCase {
     
     func testWhenEmbeddedDataIsUpdatedThenUpdateSHAAndEtag() throws {
         

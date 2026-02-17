@@ -21,7 +21,7 @@ import Foundation
 import XCTest
 @testable import Core
 
-class DefaultPersistentPixelStorageTests: XCTestCase {
+class DefaultPersistentPixelStorageTests: LeakCheckableTestCase {
 
     var currentStorageURL: URL!
     var persistentStorage: DefaultPersistentPixelStorage!

@@ -22,7 +22,7 @@ import Foundation
 import XCTest
 @testable import Core
 
-class HashExtensionTest: XCTestCase {
+class HashExtensionTest: LeakCheckableTestCase {
     
     func testWhenSha1DataIsCalledThenHashIsCorrect() {
         let result = "Hello World!".data(using: .utf8)?.sha1

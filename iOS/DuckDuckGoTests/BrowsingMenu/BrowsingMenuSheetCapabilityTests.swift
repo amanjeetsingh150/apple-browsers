@@ -24,7 +24,7 @@ import PrivacyConfig
 import PersistenceTestingUtils
 
 @available(iOS 17.0, *)
-final class BrowsingMenuSheetCapabilityTests: XCTestCase {
+final class BrowsingMenuSheetCapabilityTests: LeakCheckableTestCase {
 
     private var mockFeatureFlagger: MockFeatureFlagger!
     private var mockKeyValueStore: MockThrowingKeyValueStore!

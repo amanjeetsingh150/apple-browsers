@@ -20,7 +20,7 @@
 import XCTest
 @testable import DuckDuckGo
 
-class TabSwitcherStaticButtonTests: XCTestCase {
+class TabSwitcherStaticButtonTests: LeakCheckableTestCase {
 
     func testInitialState() {
         let button = TabSwitcherStaticButton()

@@ -28,7 +28,7 @@ final class MockDataClearingCapability: DataClearingCapable {
 }
 
 @MainActor
-final class DataClearingSettingsViewModelTests: XCTestCase {
+final class DataClearingSettingsViewModelTests: LeakCheckableTestCase {
 
     // MARK: - Test Doubles
 

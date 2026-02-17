@@ -27,7 +27,7 @@ import Persistence
 import Common
 @testable import BrowserServicesKitTestsUtils
 
-final class AutofillSettingsViewModelTests: XCTestCase {
+final class AutofillSettingsViewModelTests: LeakCheckableTestCase {
     
     private let appSettings = AppSettingsMock()
     private let vault = (try? MockSecureVaultFactory.makeVault(reporter: nil))!

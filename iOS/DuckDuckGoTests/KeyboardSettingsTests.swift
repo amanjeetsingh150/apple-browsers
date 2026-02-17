@@ -21,7 +21,7 @@ import XCTest
 @testable import DuckDuckGo
 @testable import Core
 
-class KeyboardSettingsTests: XCTestCase {
+class KeyboardSettingsTests: LeakCheckableTestCase {
     
     override func setUp() {
         super.setUp()

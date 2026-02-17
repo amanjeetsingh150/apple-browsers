@@ -23,7 +23,7 @@ import PersistenceTestingUtils
 import Persistence
 @testable import Core
 
-final class DailyPixelTests: XCTestCase {
+final class DailyPixelTests: LeakCheckableTestCase {
 
     let mockStore = MockKeyValueStore()
 

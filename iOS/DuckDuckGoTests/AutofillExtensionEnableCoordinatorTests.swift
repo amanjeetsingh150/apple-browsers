@@ -23,7 +23,7 @@ import XCTest
 
 @available(iOS 18.0, *)
 @MainActor
-final class AutofillExtensionEnableCoordinatorTests: XCTestCase {
+final class AutofillExtensionEnableCoordinatorTests: LeakCheckableTestCase {
 
     private var mockStore: MockASCredentialIdentityStore!
     private var mockSettingsHelper: MockAutofillExtensionSettingsHelper!

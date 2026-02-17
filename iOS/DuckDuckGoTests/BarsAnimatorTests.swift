@@ -22,7 +22,7 @@ import PrivacyDashboard
 
 @testable import DuckDuckGo
 
-class BarsAnimatorTests: XCTestCase {
+class BarsAnimatorTests: LeakCheckableTestCase {
 
     func testDidStartScrollingUpdatesPositionCorrectly() {
         let (sut, delegate) = makeSUT()

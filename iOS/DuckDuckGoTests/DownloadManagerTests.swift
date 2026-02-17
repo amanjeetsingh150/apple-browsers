@@ -23,7 +23,7 @@ import WebKit
 @testable import DuckDuckGo
 import WidgetKit
 
-class DownloadManagerTests: XCTestCase {
+class DownloadManagerTests: LeakCheckableTestCase {
     private let downloadManagerTestsHelper = DownloadTestsHelper(downloadsDirectory: DownloadManager().downloadsDirectory)
 
     override func setUp() {

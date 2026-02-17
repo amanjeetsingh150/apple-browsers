@@ -21,7 +21,7 @@ import XCTest
 import BackgroundTasks
 @testable import DuckDuckGo
 
-class AppConfigurationFetchTests: XCTestCase {
+class AppConfigurationFetchTests: LeakCheckableTestCase {
 
     let testGroupName = "configurationFetchTestGroup"
 

@@ -24,7 +24,7 @@ import XCTest
 @testable import Core
 @testable import DuckDuckGo
 
-class FaviconRequestModifierTests: XCTestCase {
+class FaviconRequestModifierTests: LeakCheckableTestCase {
     
     let testConfig = """
     {

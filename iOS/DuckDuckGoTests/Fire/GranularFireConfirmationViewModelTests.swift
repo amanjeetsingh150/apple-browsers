@@ -29,7 +29,7 @@ import PersistenceTestingUtils
 // swiftlint:disable force_try
 
 @MainActor
-final class GranularFireConfirmationViewModelTests: XCTestCase {
+final class GranularFireConfirmationViewModelTests: LeakCheckableTestCase {
     
     private var mockKeyValueStore: MockKeyValueFileStore!
     

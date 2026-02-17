@@ -21,7 +21,7 @@ import XCTest
 import Onboarding
 @testable import DuckDuckGo
 
-class OnboardingSuggestedSearchesProviderTests: XCTestCase {
+class OnboardingSuggestedSearchesProviderTests: LeakCheckableTestCase {
     private var onboardingManagerMock: OnboardingManagerMock!
     let userText = UserText.Onboarding.ContextualOnboarding.self
     static let imageSearch = "!image "

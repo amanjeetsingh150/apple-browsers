@@ -21,7 +21,7 @@ import XCTest
 @testable import Core
 import PrivacyConfig
 
-final class LaunchOptionsHandlerTests: XCTestCase {
+final class LaunchOptionsHandlerTests: LeakCheckableTestCase {
     private static let suiteName = "testing_launchOptionsHandler"
     private var userDefaults: UserDefaults!
 

@@ -20,7 +20,7 @@
 import XCTest
 @testable import Core
 
-class FileStoreTests: XCTestCase {
+class FileStoreTests: LeakCheckableTestCase {
     
     override func setUp() {
         super.setUp()

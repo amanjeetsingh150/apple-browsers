@@ -22,7 +22,7 @@ import Core
 
 @testable import DuckDuckGo
 
-class TabSwitcherBarsStateHandlerTests: XCTestCase {
+class TabSwitcherBarsStateHandlerTests: LeakCheckableTestCase {
 
     var stateHandler: TabSwitcherBarsStateHandling!
 

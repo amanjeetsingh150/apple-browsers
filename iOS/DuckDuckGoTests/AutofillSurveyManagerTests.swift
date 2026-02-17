@@ -21,7 +21,7 @@ import XCTest
 import PrivacyConfig
 @testable import DuckDuckGo
 
-final class AutofillSurveyManagerTests: XCTestCase {
+final class AutofillSurveyManagerTests: LeakCheckableTestCase {
 
     private var manager: AutofillSurveyManager!
 

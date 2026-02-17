@@ -24,7 +24,7 @@ import AIChat
 
 @testable import DuckDuckGo
 
-class QuerySubmittedTests: XCTestCase {
+class QuerySubmittedTests: LeakCheckableTestCase {
     let mock = MockOmniBarDelegate()
     let sut = DefaultOmniBarViewController(
         dependencies: MockOmnibarDependency(

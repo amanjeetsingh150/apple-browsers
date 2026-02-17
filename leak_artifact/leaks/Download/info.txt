@@ -1,0 +1,14 @@
+=== Leak Instance ===
+Test: -[DownloadManagerTests testDownloadListUniqueFilenames]
+Type: Download
+Leak Type: ROOT_CYCLE
+Count: 5
+Size: 960 bytes
+Instance Size: 208 bytes
+
+=== Children ===
+  4 (752 bytes) session --> MockDownloadSession [80]
+  0 ()  --> Download [208]
+  3 (672 bytes) temporaryFilePath --> NSURL [96]
+  1 (320 bytes)  -->  [320]
+  1 (256 bytes) _clients --> CFString [256]

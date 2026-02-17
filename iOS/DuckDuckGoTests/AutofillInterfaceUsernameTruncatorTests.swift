@@ -20,7 +20,7 @@
 import XCTest
 @testable import DuckDuckGo
 
-class AutofillInterfaceUsernameTruncatorTests: XCTestCase {
+class AutofillInterfaceUsernameTruncatorTests: LeakCheckableTestCase {
 
     func testWhenUsernameIsShorterThanMaxLengthThenNotTruncated() {
         let username = "daxTheDuck"

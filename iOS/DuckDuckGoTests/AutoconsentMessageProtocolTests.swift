@@ -24,7 +24,7 @@ import WebKit
 import PrivacyConfig
 import PrivacyConfigTestsUtils
 
-final class AutoconsentMessageProtocolTests: XCTestCase {
+final class AutoconsentMessageProtocolTests: LeakCheckableTestCase {
 
     var userScript: AutoconsentUserScript! = {
         let embeddedConfig =

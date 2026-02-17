@@ -21,7 +21,7 @@ import XCTest
 @testable import DuckDuckGo
 import BrowserServicesKit
 
-final class OmniBarEqualityCheckTests: XCTestCase {
+final class OmniBarEqualityCheckTests: LeakCheckableTestCase {
     func testRequiresUpdateChecksForIsLoading() {
         let loadingOmniBarState = DummyOmniBarState(isLoading: true)
         let notLoadingOmniBarState = DummyOmniBarState(isLoading: false)

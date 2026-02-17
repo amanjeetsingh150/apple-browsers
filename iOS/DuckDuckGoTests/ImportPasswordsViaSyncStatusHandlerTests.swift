@@ -24,7 +24,7 @@ import XCTest
 @testable import BrowserServicesKit
 @testable import Common
 
-final class ImportPasswordsViaSyncStatusHandlerTests: XCTestCase {
+final class ImportPasswordsViaSyncStatusHandlerTests: LeakCheckableTestCase {
 
     private let appSettings = AppSettingsMock()
     private let scheduler = CapturingScheduler()

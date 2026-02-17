@@ -1,0 +1,57 @@
+name: "iOS XCTestLeaks Detection"
+
+on:
+    push:
+        branches:
+          - xctestleaks-report
+    workflow_dispatch: {}
+
+env:
+    xcode_version: 16.2
+    ios_version: 18.2
+    ios_simulator_default: Testing Phone 18
+
+jobs:
+    run-leak-detection:
+        name: Run Leak Detection
+        runs-on: macos-15
+        timeout-minutes: 240
+        steps:
+            - name: Check out source code
+              uses: actions/checkout@v4.1.7
+              with:
+                submodules: recursive
+
+            - name: Setup Xcode
+              run: |
+                sudo xcode-select -s /Applications/Xcode_${{ env.xcode_version }}.app/Contents/Developer
+                xcodebuild -version
+
+            - name: Install XCTestLeaks
+              run: brew install amanjeetsingh150/xctestleaks/xctestleaks
+
+            - name: Print version of XCTestLeaks
+              run: xctestleaks --version
+
+            - name: Create simulator
+              run: |
+                xcrun simctl create "${{ env.ios_simulator_default }}" "iPhone 16 Pro" "com.apple.CoreSimulator.SimRuntime.iOS-18-2" || true
+                xcrun simctl boot "${{ env.ios_simulator_default }}" || true
+
+            - name: Run XCTestLeaks
+              run: |
+                xctestleaks run \
+                  --project ./iOS/DuckDuckGo-iOS.xcodeproj \
+                  --scheme "iOS Unit Tests" \
+                  --destination "platform=iOS Simulator,OS=${{ env.ios_version }},name=${{ env.ios_simulator_default }}" \
+                  --output-dir ./leak_artifacts \
+                  --html-output \
+                  --timeout=14400
+
+            - name: Upload Leak Report
+              if: always()
+              uses: actions/upload-artifact@v4.3.4
+              with:
+                name: xctestleaks-report-${{ github.run_number }}
+                path: ./leak_artifacts/
+                retention-days: 90

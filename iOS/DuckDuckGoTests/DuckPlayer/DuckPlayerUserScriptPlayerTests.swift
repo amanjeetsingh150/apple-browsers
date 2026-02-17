@@ -26,7 +26,7 @@ import UserScript
 @testable import DuckDuckGo
 @testable import Core
 
-final class DuckPlayerUserScriptPlayerTests: XCTestCase {
+final class DuckPlayerUserScriptPlayerTests: LeakCheckableTestCase {
     
     private var mockWebView: MockWebView!
     private var viewModel: DuckPlayerViewModel!

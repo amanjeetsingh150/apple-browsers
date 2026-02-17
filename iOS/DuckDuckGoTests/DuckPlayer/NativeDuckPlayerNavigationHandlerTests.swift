@@ -28,7 +28,7 @@ import Combine
 @testable import DuckDuckGo
 
 @MainActor
-final class NativeDuckPlayerNavigationHandlerTests: XCTestCase {
+final class NativeDuckPlayerNavigationHandlerTests: LeakCheckableTestCase {
 
     // MARK: - Properties
     private var mockWebView: MockWebView!

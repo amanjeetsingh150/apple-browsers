@@ -20,7 +20,7 @@
 import XCTest
 @testable import DuckDuckGo
 
-final class DaxEasterEggLogoCacheTests: XCTestCase {
+final class DaxEasterEggLogoCacheTests: LeakCheckableTestCase {
     
     var cache: DaxEasterEggLogoCache!
     

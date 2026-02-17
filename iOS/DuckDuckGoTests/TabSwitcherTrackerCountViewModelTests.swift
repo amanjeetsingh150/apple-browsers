@@ -22,7 +22,7 @@ import XCTest
 @testable import Core
 
 @MainActor
-final class TabSwitcherTrackerCountViewModelTests: XCTestCase {
+final class TabSwitcherTrackerCountViewModelTests: LeakCheckableTestCase {
 
     final class MockPrivacyStats: PrivacyStatsProviding {
         var total: Int64 = 0

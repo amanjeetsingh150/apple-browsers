@@ -25,7 +25,7 @@ import XCTest
 @testable import DuckDuckGo
 
 @MainActor
-final class AIChatPageContextHandlerTests: XCTestCase {
+final class AIChatPageContextHandlerTests: LeakCheckableTestCase {
 
     private var cancellables: Set<AnyCancellable>!
 

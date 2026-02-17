@@ -21,7 +21,7 @@ import XCTest
 @testable import DuckDuckGo
 @testable import Core
 
-final class AIChatContextualModeFeatureTests: XCTestCase {
+final class AIChatContextualModeFeatureTests: LeakCheckableTestCase {
 
     // MARK: - Mocks
 

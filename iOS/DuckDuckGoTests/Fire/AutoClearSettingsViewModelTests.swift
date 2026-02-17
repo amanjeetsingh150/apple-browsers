@@ -23,7 +23,7 @@ import XCTest
 import AIChat
 
 @MainActor
-final class AutoClearSettingsViewModelTests: XCTestCase {
+final class AutoClearSettingsViewModelTests: LeakCheckableTestCase {
 
     // MARK: - Properties
 

@@ -21,7 +21,7 @@ import XCTest
 @testable import DuckDuckGo
 @testable import BrowserServicesKit
 
-final class AutofillCredentialsImportPresentationManagerTests: XCTestCase {
+final class AutofillCredentialsImportPresentationManagerTests: LeakCheckableTestCase {
     
     private var manager: AutofillCredentialsImportPresentationManager!
     private var importState: MockAutofillLoginImportState!

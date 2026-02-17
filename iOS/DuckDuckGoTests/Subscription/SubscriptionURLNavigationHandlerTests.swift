@@ -22,7 +22,7 @@ import Core
 @testable import DuckDuckGo
 
 @MainActor
-final class SubscriptionURLNavigationHandlerTests: XCTestCase {
+final class SubscriptionURLNavigationHandlerTests: LeakCheckableTestCase {
 
     var handler: SubscriptionURLNavigationHandler!
     var notificationCenter: NotificationCenter!

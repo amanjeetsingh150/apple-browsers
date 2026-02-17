@@ -64,7 +64,7 @@ extension UIDevice {
     }
 }
 
-class DuckPlayerSettingsTests: XCTestCase {
+class DuckPlayerSettingsTests: LeakCheckableTestCase {
 
     private var mockAppSettings: AppSettingsMock!
     private var mockPrivacyConfig: PrivacyConfigurationManagerMock!

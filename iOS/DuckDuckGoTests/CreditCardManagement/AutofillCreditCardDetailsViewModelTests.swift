@@ -23,7 +23,7 @@ import Core
 import BrowserServicesKit
 import Combine
 
-final class AutofillCreditCardDetailsViewModelTests: XCTestCase {
+final class AutofillCreditCardDetailsViewModelTests: LeakCheckableTestCase {
     
     private let vault = (try? MockSecureVaultFactory.makeVault(reporter: nil))!
     private var viewModel: AutofillCreditCardDetailsViewModel!

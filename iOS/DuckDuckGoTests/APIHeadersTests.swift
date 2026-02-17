@@ -23,7 +23,7 @@ import Networking
 @testable import Common
 @testable import Core
 
-class APIHeadersTests: XCTestCase {
+class APIHeadersTests: LeakCheckableTestCase {
 
     func testWhenHeadersRequestedThenHeadersContainUserAgent() {
         APIRequest.Headers.setUserAgent(DefaultUserAgentManager.duckduckGoUserAgent(for: makeAppVersion()))

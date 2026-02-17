@@ -23,7 +23,7 @@ import XCTest
 
 @available(iOS 18.0, *)
 @MainActor
-final class AutofillExtensionSettingsViewModelTests: XCTestCase {
+final class AutofillExtensionSettingsViewModelTests: LeakCheckableTestCase {
 
     func testUpdateExtensionStatusReflectsCredentialStoreState() async {
         let store = MockASCredentialIdentityStore()

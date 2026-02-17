@@ -22,7 +22,7 @@ import BrowserServicesKit
 import Configuration
 @testable import DuckDuckGo
 
-final class AppConfigurationURLProviderTests: XCTestCase {
+final class AppConfigurationURLProviderTests: LeakCheckableTestCase {
     private var urlProvider: AppConfigurationURLProvider!
     private var mockTdsURLProvider: MockTrackerDataURLProvider!
     let controlURL = "control/url.json"

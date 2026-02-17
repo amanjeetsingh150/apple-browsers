@@ -24,7 +24,7 @@ import Common
 import BrowserServicesKitTestsUtils
 @testable import Core
 
-final class SyncErrorHandlerSyncErrorsAlertsTests: XCTestCase {
+final class SyncErrorHandlerSyncErrorsAlertsTests: LeakCheckableTestCase {
     var handler: SyncErrorHandler!
     var alertPresenter: CapturingAlertPresenter!
     var dateProvider: MockCurrentDateProvider!

@@ -298,6 +298,15 @@
       }
     },
     {
+      "identity" : "xctestleaks",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/amanjeetsingh150/XCTestLeaks",
+      "state" : {
+        "revision" : "1483d82457a11c08f99ce8e2d897ef4659616319",
+        "version" : "0.1.5"
+      }
+    },
+    {
       "identity" : "zipfoundation",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/weichsel/ZIPFoundation.git",

@@ -22,7 +22,7 @@ import XCTest
 import BrowserServicesKit
 import Core
 
-final class SaveCreditCardViewModelTests: XCTestCase {
+final class SaveCreditCardViewModelTests: LeakCheckableTestCase {
     
     private let vault = (try? MockSecureVaultFactory.makeVault(reporter: nil))!
     private var viewModel: SaveCreditCardViewModel!

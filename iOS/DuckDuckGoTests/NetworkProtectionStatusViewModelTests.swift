@@ -25,7 +25,7 @@ import SubscriptionTestingUtilities
 import Subscription
 @testable import DuckDuckGo
 
- final class NetworkProtectionStatusViewModelTests: XCTestCase {
+ final class NetworkProtectionStatusViewModelTests: LeakCheckableTestCase {
     private var tunnelController: MockTunnelController!
     private var statusObserver: MockConnectionStatusObserver!
     private var serverInfoObserver: MockConnectionServerInfoObserver!

@@ -31,7 +31,7 @@ import BrowserServicesKit
 import Persistence
 import PrivacyDashboard
 
-class AutofillLoginListViewModelTests: XCTestCase {
+class AutofillLoginListViewModelTests: LeakCheckableTestCase {
 
     private let tld = TLD()
     private let appSettings = AppSettingsMock()
@@ -702,7 +702,7 @@ class AutofillLoginListViewModelTests: XCTestCase {
 
 }
 
-class AutofillLoginListSectionTypeTests: XCTestCase {
+class AutofillLoginListSectionTypeTests: LeakCheckableTestCase {
 
     func testWhenComparedThenSortedCorrectly() {
         let testData = [AutofillLoginListSectionType.credentials(title: "e", items: []),
@@ -727,7 +727,7 @@ class AutofillLoginListSectionTypeTests: XCTestCase {
     }
 }
 
-class AutofillLoginListItemViewModelTests: XCTestCase {
+class AutofillLoginListItemViewModelTests: LeakCheckableTestCase {
 
     let tld = TLD()
     let autofillUrlMatcher = AutofillDomainNameUrlMatcher()

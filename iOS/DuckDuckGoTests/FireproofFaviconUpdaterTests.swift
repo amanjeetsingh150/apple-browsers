@@ -25,7 +25,7 @@ import XCTest
 
 @testable import DuckDuckGo
 
-class FireproofFaviconUpdaterTests: XCTestCase, TabNotifying, FaviconProviding {
+class FireproofFaviconUpdaterTests: LeakCheckableTestCase, TabNotifying, FaviconProviding {
 
     var db: CoreDataDatabase!
 

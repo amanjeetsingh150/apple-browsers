@@ -31,7 +31,7 @@ import History
 @testable import DuckDuckGo
 @testable import PersistenceTestingUtils
 
-final class AutocompleteSuggestionsDataSourceTests: XCTestCase {
+final class AutocompleteSuggestionsDataSourceTests: LeakCheckableTestCase {
 
     var db: CoreDataDatabase!
     var mainContext: NSManagedObjectContext!

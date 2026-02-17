@@ -22,7 +22,7 @@ import Combine
 @testable import DuckDuckGo
 @testable import Core
 
-final class OnboardingSearchExperienceSelectionHandlerTests: XCTestCase {
+final class OnboardingSearchExperienceSelectionHandlerTests: LeakCheckableTestCase {
     private var sut: OnboardingSearchExperienceSelectionHandler!
     private var daxDialogs: DaxDialogs!
     private var mockDaxDialogsSettings: MockDaxDialogsSettings!

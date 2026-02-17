@@ -20,7 +20,7 @@
 import XCTest
 @testable import Core
 
-final class BoolFileMarkerTests: XCTestCase {
+final class BoolFileMarkerTests: LeakCheckableTestCase {
 
     private let marker = BoolFileMarker(name: .init(rawValue: "test"))!
 

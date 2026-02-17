@@ -23,7 +23,7 @@ import XCTest
 @testable import Subscription
 import Core
 
-final class WinBackOfferCoordinatorTests: XCTestCase {
+final class WinBackOfferCoordinatorTests: LeakCheckableTestCase {
 
     private var sut: WinBackOfferCoordinator!
     private var mockVisibilityManager: MockWinBackOfferVisibilityManager!

@@ -21,7 +21,7 @@ import XCTest
 @testable import DuckDuckGo
 @testable import Core
 
-final class OnboardingSearchExperienceSettingsResolverTests: XCTestCase {
+final class OnboardingSearchExperienceSettingsResolverTests: LeakCheckableTestCase {
     private var sut: OnboardingSearchExperienceSettingsResolver!
     private var mockFeatureFlagger: MockFeatureFlagger!
     private var mockOnboardingProvider: MockOnboardingSearchExperienceProvider!

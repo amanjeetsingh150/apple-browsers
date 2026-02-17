@@ -26,7 +26,7 @@ import Core
 import Common
 @testable import DuckDuckGo
 
-final class SyncCreditCardsAdapterTests: XCTestCase {
+final class SyncCreditCardsAdapterTests: LeakCheckableTestCase {
 
     var errorHandler: CapturingAdapterErrorHandler!
     var adapter: SyncCreditCardsAdapter!

@@ -24,7 +24,7 @@ import Networking
 @testable import Core
 import Common
 
-class PixelTests: XCTestCase {
+class PixelTests: LeakCheckableTestCase {
     
     let host = "improving.duckduckgo.com"
     let testAgent = "Test Agent"

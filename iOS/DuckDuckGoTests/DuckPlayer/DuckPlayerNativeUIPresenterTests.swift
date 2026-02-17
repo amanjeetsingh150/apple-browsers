@@ -77,7 +77,7 @@ class MockDuckPlayerPixelHandler: DuckPlayerPixelFiring {
     }
 }
 
-final class DuckPlayerNativeUIPresenterTests: XCTestCase {
+final class DuckPlayerNativeUIPresenterTests: LeakCheckableTestCase {
 
     // MARK: - Properties
 

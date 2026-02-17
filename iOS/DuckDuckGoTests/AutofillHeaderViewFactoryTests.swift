@@ -37,7 +37,7 @@ class MockAutofillHeaderViewDelegate: AutofillHeaderViewDelegate {
     }
 }
 
-final class AutofillHeaderViewFactoryTests: XCTestCase {
+final class AutofillHeaderViewFactoryTests: LeakCheckableTestCase {
 
     var factory: AutofillHeaderViewFactory!
     var mockDelegate: MockAutofillHeaderViewDelegate!

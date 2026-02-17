@@ -23,7 +23,7 @@ import XCTest
 import AIChat
 import PersistenceTestingUtils
 
-final class OpenAIChatFromAddressBarHandlingTests: XCTestCase {
+final class OpenAIChatFromAddressBarHandlingTests: LeakCheckableTestCase {
 
     func testWhenTextFieldIsBlankThenJustOpen() {
         let sut = OpenAIChatFromAddressBarHandling()

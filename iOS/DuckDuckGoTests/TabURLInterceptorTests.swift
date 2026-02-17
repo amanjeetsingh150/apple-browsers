@@ -24,7 +24,7 @@ import SubscriptionTestingUtilities
 import AIChat
 @testable import DuckDuckGo
 
-class TabURLInterceptorDefaultTests: XCTestCase {
+class TabURLInterceptorDefaultTests: LeakCheckableTestCase {
 
     private var mockInternalUserStoring = MockInternalUserStoring()
     private var mockAIChatFullModeFeature: MockAIChatFullModeFeatureProviding!

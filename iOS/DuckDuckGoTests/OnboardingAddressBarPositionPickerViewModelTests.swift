@@ -20,7 +20,7 @@
 import XCTest
 @testable import DuckDuckGo
 
-final class OnboardingAddressBarPositionPickerViewModelTests: XCTestCase {
+final class OnboardingAddressBarPositionPickerViewModelTests: LeakCheckableTestCase {
     private var addressBarPositionManagerMock: AddressBarPositionManagerMock!
 
     override func setUpWithError() throws {

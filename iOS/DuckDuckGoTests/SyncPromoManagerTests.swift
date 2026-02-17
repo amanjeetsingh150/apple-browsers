@@ -23,7 +23,7 @@ import PrivacyConfig
 @testable import DDGSync
 @testable import DuckDuckGo
 
-final class SyncPromoManagerTests: XCTestCase {
+final class SyncPromoManagerTests: LeakCheckableTestCase {
 
     let testGroupName = "test"
     var customSuite: UserDefaults!

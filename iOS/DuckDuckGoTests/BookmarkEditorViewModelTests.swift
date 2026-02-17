@@ -24,7 +24,7 @@ import Persistence
 import Common
 import DuckDuckGo
 
-class BookmarkEditorViewModelTests: XCTestCase {
+class BookmarkEditorViewModelTests: LeakCheckableTestCase {
     
     var db: CoreDataDatabase!
     

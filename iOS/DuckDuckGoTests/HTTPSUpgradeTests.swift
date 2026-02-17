@@ -24,7 +24,7 @@ import XCTest
 
 @testable import Core
 
-class HTTPSUpgradeTests: XCTestCase {
+class HTTPSUpgradeTests: LeakCheckableTestCase {
     
     override func tearDown() {
         HTTPStubs.removeAllStubs()

@@ -20,7 +20,7 @@
 import XCTest
 @testable import DuckDuckGo
 
-final class AdClickExternalOpenDetectorTests: XCTestCase {
+final class AdClickExternalOpenDetectorTests: LeakCheckableTestCase {
 
     var detector: AdClickExternalOpenDetector!
     let testTabID = "test-tab"

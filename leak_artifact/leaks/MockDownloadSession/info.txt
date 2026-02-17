@@ -1,0 +1,11 @@
+=== Leak Instance ===
+Test: -[DownloadManagerTests testDownloadListUniqueFilenames]
+Type: MockDownloadSession
+Leak Type: ROOT_CYCLE
+Count: 2
+Size: 288 bytes
+Instance Size: 80 bytes
+
+=== Children ===
+  1 (208 bytes) delegate --> Download [208]
+  0 ()  --> MockDownloadSession [80]

@@ -21,7 +21,7 @@ import XCTest
 @testable import Core
 @testable import DuckDuckGo
 
-class UserDefaultsHomeRowReminderStorageTests: XCTestCase {
+class UserDefaultsHomeRowReminderStorageTests: LeakCheckableTestCase {
 
     let defaultsName = "UserDefaultsHomeRowReminderStorageTests"
 

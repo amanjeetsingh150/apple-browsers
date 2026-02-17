@@ -23,7 +23,7 @@ import Bookmarks
 
 @testable import DuckDuckGo
 
-final class FavoritesListInteractingAdapterTests: XCTestCase {
+final class FavoritesListInteractingAdapterTests: LeakCheckableTestCase {
 
     private var favoritesListInteracting: MockFavoritesListInteracting!
     private var appSettings: AppSettingsMock!

@@ -22,7 +22,7 @@ import Core
 import SubscriptionTestingUtilities
 @testable import DuckDuckGo
 
-final class OnboardingSubscriptionPromotionHelpingTests: XCTestCase {
+final class OnboardingSubscriptionPromotionHelpingTests: LeakCheckableTestCase {
 
     private var sut: OnboardingSubscriptionPromotionHelping!
     private var mockFeatureFlagger: MockFeatureFlagger!

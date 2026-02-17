@@ -25,7 +25,7 @@ import Persistence
 @testable import BrowserServicesKitTestsUtils
 
 @available(iOS 18.0, *)
-final class AutofillExtensionPromotionManagerTests: XCTestCase {
+final class AutofillExtensionPromotionManagerTests: LeakCheckableTestCase {
 
     private var mockFeatureFlagger: MockFeatureFlagger!
     private var mockKeyValueStore: ThrowingKeyValueStoring!

@@ -21,7 +21,7 @@ import XCTest
 @testable import DuckDuckGo
 import PersistenceTestingUtils
 
-final class SwitchBarRetentionMetricsTests: XCTestCase {
+final class SwitchBarRetentionMetricsTests: LeakCheckableTestCase {
 
     var mockStorage: MockKeyValueStore!
     var mockAIChatSettings: MockAIChatSettingsProvider!

@@ -29,7 +29,7 @@ import SubscriptionTestingUtilities
 import PixelKitTestingUtilities
 import Networking
 
-final class SubscriptionPagesUseSubscriptionFeatureTests: XCTestCase {
+final class SubscriptionPagesUseSubscriptionFeatureTests: LeakCheckableTestCase {
     
     var sut: DefaultSubscriptionPagesUseSubscriptionFeature!
     var mockSubscriptionManager: SubscriptionManagerMock!

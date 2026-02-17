@@ -22,7 +22,7 @@ import XCTest
 import PrivacyConfigTestsUtils
 import PersistenceTestingUtils
 
-final class NewBadgeVisibilityManagerTests: XCTestCase {
+final class NewBadgeVisibilityManagerTests: LeakCheckableTestCase {
 
     private static let firstImpressionDateStorageKey = NewBadgeFeature.personalInformationRemoval.firstImpressionDateStorageKey
 
@@ -136,7 +136,7 @@ final class NewBadgeVisibilityManagerTests: XCTestCase {
     }
 }
 
-final class DefaultNewBadgeConfigProviderTests: XCTestCase {
+final class DefaultNewBadgeConfigProviderTests: LeakCheckableTestCase {
 
     func testReleaseWindowComparison() {
         let provider = makeProvider(minSupportedVersion: "7.100.0")

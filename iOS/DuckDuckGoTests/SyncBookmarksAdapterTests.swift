@@ -26,7 +26,7 @@ import Persistence
 import Core
 @testable import DuckDuckGo
 
-final class SyncBookmarksAdapterTests: XCTestCase {
+final class SyncBookmarksAdapterTests: LeakCheckableTestCase {
 
     var errorHandler: CapturingAdapterErrorHandler!
     var adapter: SyncBookmarksAdapter!

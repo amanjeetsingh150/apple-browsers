@@ -23,7 +23,7 @@ import XCTest
 import AIChat
 import PersistenceTestingUtils
 
-final class AIChatSettingsMigrationTests: XCTestCase {
+final class AIChatSettingsMigrationTests: LeakCheckableTestCase {
 
     static let allKeys = [
         LegacyAiChatUserDefaultsKeys.isAIChatEnabledKey,

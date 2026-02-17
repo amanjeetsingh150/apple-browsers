@@ -23,7 +23,7 @@ import Combine
 @testable import AIChat
 
 @MainActor
-final class AIChatContextualChatSessionStateTests: XCTestCase {
+final class AIChatContextualChatSessionStateTests: LeakCheckableTestCase {
 
     private var sessionState: AIChatContextualChatSessionState!
     private var mockSettings: MockAIChatSettingsProvider!

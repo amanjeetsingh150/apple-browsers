@@ -21,7 +21,7 @@ import XCTest
 import Lottie
 @testable import DuckDuckGo
 
-final class AddToDockPromoViewModelTests: XCTestCase {
+final class AddToDockPromoViewModelTests: LeakCheckableTestCase {
     private var sut: AddToDockPromoViewModel!
     private var managerMock: AppIconManagerMock!
 

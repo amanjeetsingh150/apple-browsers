@@ -24,7 +24,7 @@ import XCTest
 import PrivacyConfig
 import Combine
 
-final class SubscriptionFeatureFlagMappingTests: XCTestCase {
+final class SubscriptionFeatureFlagMappingTests: LeakCheckableTestCase {
 
     let internalUserDecider = MockInternalUserDecider()
     let userDefaults = UserDefaults(suiteName: "SubscriptionFeatureFlagMappingTests")!

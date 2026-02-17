@@ -101,7 +101,7 @@ class BookmarksStateValidationMock: BookmarksStateValidation {
     }
 }
 
-class BookmarksDatabaseSetupTests: XCTestCase {
+class BookmarksDatabaseSetupTests: LeakCheckableTestCase {
 
     let validatorMock = BookmarksStateValidationMock()
     let ffMock = FormFactorMigratingMock()

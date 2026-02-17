@@ -21,7 +21,7 @@ import XCTest
 import WebKit
 @testable import DuckDuckGo
 
-final class DaxEasterEggHandlerTests: XCTestCase {
+final class DaxEasterEggHandlerTests: LeakCheckableTestCase {
     
     var handler: DaxEasterEggHandler!
     var mockDelegate: MockDaxEasterEggDelegate!

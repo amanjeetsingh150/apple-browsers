@@ -20,7 +20,7 @@
 import XCTest
 @testable import DuckDuckGo
 
-class LaunchTabNotificationTests: XCTestCase {
+class LaunchTabNotificationTests: LeakCheckableTestCase {
 
     func testWhenNotificationObserverRemovedPostsAreNotHandled() {
         var x: String?

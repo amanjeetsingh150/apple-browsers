@@ -25,7 +25,7 @@ import History
 @testable import Core
 import Common
 
-final class HistoryManagerTests: XCTestCase {
+final class HistoryManagerTests: LeakCheckableTestCase {
 
     @MainActor
     func testWhenURLIsDeletedThenSiteIsRemovedFromHistory() async throws {

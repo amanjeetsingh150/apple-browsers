@@ -40,7 +40,7 @@ public class MockBookmarksSearchStore: BookmarksSearchStore {
     }
 }
 
-class BookmarksCachingSearchTests: XCTestCase {
+class BookmarksCachingSearchTests: LeakCheckableTestCase {
     
     let url = URL(string: "http://duckduckgo.com")!
     

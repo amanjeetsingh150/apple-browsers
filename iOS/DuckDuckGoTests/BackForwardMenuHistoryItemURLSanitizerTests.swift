@@ -22,7 +22,7 @@ import XCTest
 
 @testable import DuckDuckGo
 
-class BackForwardMenuHistoryItemURLSanitizerTests: XCTestCase {
+class BackForwardMenuHistoryItemURLSanitizerTests: LeakCheckableTestCase {
 
     func testURLWithoutWWW() {
         let base = URL(string: "duck.com")!

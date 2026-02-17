@@ -20,7 +20,7 @@
 import XCTest
 import Core
 
-class DomainsProtectionUserDefaultsStoreTests: XCTestCase {
+class DomainsProtectionUserDefaultsStoreTests: LeakCheckableTestCase {
 
     struct Constants {
         static let userDefaultsSuit = "ContentBlockerUserDefaultsTestsSuit"

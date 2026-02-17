@@ -22,7 +22,7 @@ import XCTest
 @testable import BrowserServicesKit
 import Common
 
-class AtbParserTests: XCTestCase {
+class AtbParserTests: LeakCheckableTestCase {
 
     private var testee = AtbParser()
     private var data = JsonTestDataLoader()

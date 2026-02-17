@@ -21,7 +21,7 @@ import XCTest
 @testable import DuckDuckGo
 import Suggestions
 
-final class AutocompleteViewModelTests: XCTestCase {
+final class AutocompleteViewModelTests: LeakCheckableTestCase {
 
     private func makeViewModel(showMessage: Bool = true, showAskAIChat: Bool = false, isSwipeToDeleteEnabled: Bool = false) -> (AutocompleteViewModel, MockAutocompleteViewModelDelegate) {
         let vm = AutocompleteViewModel(isAddressBarAtBottom: false, showMessage: showMessage, showAskAIChat: showAskAIChat, isSwipeToDeleteEnabled: isSwipeToDeleteEnabled)

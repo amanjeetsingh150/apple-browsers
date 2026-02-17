@@ -23,7 +23,7 @@ import Core
 import BrowserServicesKit
 import Common
 
-class DataImportViewModelTests: XCTestCase {
+class DataImportViewModelTests: LeakCheckableTestCase {
 
     var viewModel: DataImportViewModel!
     fileprivate var mockImportManager: MockDataImportManager!

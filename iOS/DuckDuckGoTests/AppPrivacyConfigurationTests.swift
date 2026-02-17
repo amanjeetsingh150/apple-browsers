@@ -22,7 +22,7 @@ import XCTest
 import PrivacyConfig
 import PrivacyConfigTestsUtils
 
-class AppPrivacyConfigurationTests: XCTestCase {
+class AppPrivacyConfigurationTests: LeakCheckableTestCase {
 
     func testWhenEmbeddedDataIsUpdatedThenUpdateSHAAndEtag() {
 

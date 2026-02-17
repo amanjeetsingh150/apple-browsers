@@ -23,7 +23,7 @@ import CoreData
 import Bookmarks
 import DuckDuckGo
 
-class BookmarkEntityTests: XCTestCase {
+class BookmarkEntityTests: LeakCheckableTestCase {
 
     var db: CoreDataDatabase!
     var context: NSManagedObjectContext!

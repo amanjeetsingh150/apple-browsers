@@ -24,7 +24,7 @@ import Common
 
 @testable import DuckDuckGo
 
-final class DuckPlayerTests: XCTestCase {
+final class DuckPlayerTests: LeakCheckableTestCase {
 
     var duckPlayer: DuckPlayer!
     var mockAppSettings: AppSettingsMock!

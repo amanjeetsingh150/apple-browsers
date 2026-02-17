@@ -26,7 +26,7 @@ import Networking
 import NetworkingTestingUtils
 import Persistence
 
-final class SubscriptionSettingsViewModelTests: XCTestCase {
+final class SubscriptionSettingsViewModelTests: LeakCheckableTestCase {
 
     var sut: SubscriptionSettingsViewModel!
     var mockSubscriptionManager: SubscriptionManagerMock!

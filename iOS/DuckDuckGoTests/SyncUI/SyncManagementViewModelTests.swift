@@ -22,7 +22,7 @@ import Combine
 @testable import SyncUI_iOS
 
 /// To be fleshed out when UI is settled
-class SyncManagementViewModelTests: XCTestCase, SyncManagementViewModelDelegate {
+class SyncManagementViewModelTests: LeakCheckableTestCase, SyncManagementViewModelDelegate {
 
     fileprivate var monitor = Monitor<SyncManagementViewModelDelegate>()
     var syncBookmarksPausedTitle: String? = "syncBookmarksPausedTitle"

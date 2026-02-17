@@ -24,7 +24,7 @@ import Common
 import Persistence
 import SecureStorage
 
-final class DataImportManagerTests: XCTestCase {
+final class DataImportManagerTests: LeakCheckableTestCase {
 
     private var dataImportManager: DataImportManager!
     private var loginImporter: MockLoginImporter!

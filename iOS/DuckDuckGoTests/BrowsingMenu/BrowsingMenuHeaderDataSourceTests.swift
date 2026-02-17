@@ -22,7 +22,7 @@ import XCTest
 
 // MARK: - BrowsingMenuHeaderDataSource Tests
 
-final class BrowsingMenuHeaderDataSourceTests: XCTestCase {
+final class BrowsingMenuHeaderDataSourceTests: LeakCheckableTestCase {
 
     private var sut: BrowsingMenuHeaderDataSource!
 

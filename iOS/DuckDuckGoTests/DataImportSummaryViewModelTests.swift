@@ -22,7 +22,7 @@ import XCTest
 import BrowserServicesKit
 import Core
 
-class DataImportSummaryViewModelTests: XCTestCase {
+class DataImportSummaryViewModelTests: LeakCheckableTestCase {
     var viewModel: DataImportSummaryViewModel!
     fileprivate var mockDelegate: MockDataImportSummaryViewModelDelegate!
     var mockSyncService: MockDDGSyncing!

@@ -23,7 +23,7 @@ import XCTest
 import PersistenceTestingUtils
 import NetworkingTestingUtils
 
-final class AdAttributionFetcherTests: XCTestCase {
+final class AdAttributionFetcherTests: LeakCheckableTestCase {
 
     private let mockSession: URLSession = {
         let configuration = URLSessionConfiguration.default

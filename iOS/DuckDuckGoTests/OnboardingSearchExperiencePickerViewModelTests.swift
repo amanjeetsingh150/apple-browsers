@@ -20,7 +20,7 @@
 import XCTest
 @testable import DuckDuckGo
 
-final class OnboardingSearchExperiencePickerViewModelTests: XCTestCase {
+final class OnboardingSearchExperiencePickerViewModelTests: LeakCheckableTestCase {
     private var mockSearchExperienceProvider: ObservingMockOnboardingSearchExperienceProvider!
     private var sut: OnboardingSearchExperiencePickerViewModel!
     

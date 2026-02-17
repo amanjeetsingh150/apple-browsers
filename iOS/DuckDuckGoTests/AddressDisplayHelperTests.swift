@@ -21,7 +21,7 @@ import XCTest
 
 @testable import DuckDuckGo
 
-class AddressDisplayHelperTests: XCTestCase {
+class AddressDisplayHelperTests: LeakCheckableTestCase {
 
     private typealias AddressHelper = AddressDisplayHelper
 

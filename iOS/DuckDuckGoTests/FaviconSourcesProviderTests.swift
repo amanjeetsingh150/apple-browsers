@@ -22,7 +22,7 @@ import XCTest
 @testable import Core
 @testable import DuckDuckGo
 
-class FaviconSourcesProviderTests: XCTestCase {
+class FaviconSourcesProviderTests: LeakCheckableTestCase {
     
     func testWhenAdditionalSourcesRequestedThenFaviconsReturned() {
         let sources = DefaultFaviconSourcesProvider().additionalSources(forDomain: "www.example.com")

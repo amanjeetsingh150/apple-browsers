@@ -22,7 +22,7 @@ import XCTest
 @testable import Subscription
 import SubscriptionTestingUtilities
 
-final class AsyncHeadlessWebViewSettingsTests: XCTestCase {
+final class AsyncHeadlessWebViewSettingsTests: LeakCheckableTestCase {
 
     func testAllowedDomainsOnlyContainsBaseURLHostWhenInternalUserModeDisabled() async throws {
         // Given

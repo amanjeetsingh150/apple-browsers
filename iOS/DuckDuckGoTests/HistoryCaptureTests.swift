@@ -24,7 +24,7 @@ import Persistence
 import History
 @testable import Core
 
-final class HistoryCaptureTests: XCTestCase {
+final class HistoryCaptureTests: LeakCheckableTestCase {
 
     private var mockHistoryManager: MockHistoryManager!
     private var sut: HistoryCapture!

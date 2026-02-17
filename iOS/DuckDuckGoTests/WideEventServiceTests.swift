@@ -26,7 +26,7 @@ import SubscriptionTestingUtilities
 import BrowserServicesKit
 @testable import DuckDuckGo
 
-final class WideEventServiceTests: XCTestCase {
+final class WideEventServiceTests: LeakCheckableTestCase {
 
     private var wideEventMock: WideEventMock!
     private var featureFlagger: MockFeatureFlagger!

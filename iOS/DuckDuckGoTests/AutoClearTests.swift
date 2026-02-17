@@ -23,7 +23,7 @@ import XCTest
 import BrowserServicesKit
 
 @MainActor
-class AutoClearTests: XCTestCase {
+class AutoClearTests: LeakCheckableTestCase {
     
     class MockFireExecutor: FireExecuting {
         

@@ -26,7 +26,7 @@ import BrowserServicesKitTestsUtils
 import WKAbstractions
 
 @MainActor
-final class FireButtonReferenceTests: XCTestCase {
+final class FireButtonReferenceTests: LeakCheckableTestCase {
 
     private enum Resource {
         static let tests = "privacy-reference-tests/storage-clearing/tests.json"

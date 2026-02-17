@@ -21,7 +21,7 @@ import XCTest
 @testable import Core
 @testable import DuckDuckGo
 
-class AutoClearSettingsScreenTests: XCTestCase {
+class AutoClearSettingsScreenTests: LeakCheckableTestCase {
     
     func testWhenOpeningSettingsThenClearDataToggleIsSetBasedOnAppSettings() {
         let appSettings = AppUserDefaults()

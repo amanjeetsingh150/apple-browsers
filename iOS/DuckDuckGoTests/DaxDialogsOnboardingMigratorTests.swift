@@ -20,7 +20,7 @@
 import XCTest
 @testable import DuckDuckGo
 
-final class DaxDialogsOnboardingMigratorTests: XCTestCase {
+final class DaxDialogsOnboardingMigratorTests: LeakCheckableTestCase {
     private var sut: DaxDialogsOnboardingMigrator!
     private var daxDialogsSettingsMock: MockDaxDialogsSettings!
 

@@ -43,7 +43,7 @@ struct MockEntityProvider: EntityProviding {
     }
 }
 
-final class DaxDialog: XCTestCase {
+final class DaxDialog: LeakCheckableTestCase {
 
     struct URLs {
         

@@ -31,7 +31,7 @@ import WKAbstractions
 import BrowserServicesKitTestsUtils
 
 @MainActor
-final class FireExecutorTests: XCTestCase {
+final class FireExecutorTests: LeakCheckableTestCase {
     
     // MARK: - Mocks
     

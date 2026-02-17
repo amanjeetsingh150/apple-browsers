@@ -19,7 +19,7 @@
 
 import XCTest
 
-class URLExtensionTests: XCTestCase {
+class URLExtensionTests: LeakCheckableTestCase {
     
     func testWhenHostnameHasMultiplePunycodedPartsThenItIsConsideredValid() {
         XCTAssertTrue("82.xn--b1aew.xn--p1ai".isValidHostname)

@@ -20,7 +20,7 @@
 import XCTest
 @testable import DuckDuckGo
 
-class TabPreviewsSourceTests: XCTestCase {
+class TabPreviewsSourceTests: LeakCheckableTestCase {
     
     private static func makeContainerUrl() -> URL? {
         guard var cachesDirURL = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first else { return nil }

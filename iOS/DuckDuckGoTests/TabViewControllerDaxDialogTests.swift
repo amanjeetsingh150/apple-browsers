@@ -23,7 +23,7 @@ import Core
 import WebKit
 @testable import DuckDuckGo
 
-final class TabViewControllerDaxDialogTests: XCTestCase {
+final class TabViewControllerDaxDialogTests: LeakCheckableTestCase {
     private var sut: TabViewController!
     private var delegateMock: MockTabDelegate!
     private var onboardingPresenterMock: ContextualOnboardingPresenterMock!

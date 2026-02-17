@@ -22,7 +22,7 @@ import XCTest
 @testable import DuckDuckGo
 @testable import Core
 
-class TabsModelTests: XCTestCase {
+class TabsModelTests: LeakCheckableTestCase {
 
     private let exampleLink = Link(title: nil, url: URL(string: "https://example.com")!)
 

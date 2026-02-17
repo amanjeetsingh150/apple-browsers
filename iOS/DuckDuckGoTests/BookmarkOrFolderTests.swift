@@ -20,7 +20,7 @@
 import XCTest
 import Bookmarks
 
-class BookmarkOrFolderTests: XCTestCase {
+class BookmarkOrFolderTests: LeakCheckableTestCase {
 
     func test_WhenBookmarkHasUrl_ThenIsValidBookmark() throws {
         let bookmarkOrFolder = BookmarkOrFolder(name: Constants.bookmarkTitle, type: .bookmark, urlString: Constants.bookmarkURLString, children: nil)

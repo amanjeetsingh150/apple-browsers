@@ -25,7 +25,7 @@ import XCTest
 @testable import Core
 @testable import DuckDuckGo
 
-class FaviconsTests: XCTestCase {
+class FaviconsTests: LeakCheckableTestCase {
 
     private var favicons: Favicons!
     

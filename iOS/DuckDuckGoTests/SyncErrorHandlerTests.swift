@@ -23,7 +23,7 @@ import Combine
 import DuckDuckGo
 @testable import Core
 
-final class SyncErrorHandlerTests: XCTestCase {
+final class SyncErrorHandlerTests: LeakCheckableTestCase {
 
     var cancellables: Set<AnyCancellable>!
     var handler: SyncErrorHandler!

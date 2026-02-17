@@ -21,7 +21,7 @@ import XCTest
 @testable import DuckDuckGo
 @testable import Core
 
-class LinkTests: XCTestCase {
+class LinkTests: LeakCheckableTestCase {
 
     struct Constants {
         static let title = "A title"

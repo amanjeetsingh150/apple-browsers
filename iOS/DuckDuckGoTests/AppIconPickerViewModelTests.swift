@@ -20,7 +20,7 @@
 import XCTest
 @testable import DuckDuckGo
 
-final class AppIconPickerViewModelTests: XCTestCase {
+final class AppIconPickerViewModelTests: LeakCheckableTestCase {
     private var sut: AppIconPickerViewModel!
     private var appIconManagerMock: AppIconManagerMock!
 

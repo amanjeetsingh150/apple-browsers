@@ -21,7 +21,7 @@ import XCTest
 import Combine
 @testable import DuckDuckGo
 
-class DownloadsDeleteHelperTests: XCTestCase {
+class DownloadsDeleteHelperTests: LeakCheckableTestCase {
     var sut: DownloadsDeleteHelper!
     var testDirectory: URL!
     var downloadsDirectory: URL!

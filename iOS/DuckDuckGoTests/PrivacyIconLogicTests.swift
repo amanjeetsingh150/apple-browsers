@@ -26,7 +26,7 @@ import XCTest
 @testable import Core
 @testable import DuckDuckGo
 
-class PrivacyIconLogicTests: XCTestCase {
+class PrivacyIconLogicTests: LeakCheckableTestCase {
     
     static let pageURL = URL(string: "https://example.com")!
     static let insecurePageURL = URL(string: "http://example.com")!

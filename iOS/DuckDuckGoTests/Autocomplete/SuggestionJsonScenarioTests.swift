@@ -33,7 +33,7 @@ import XCTest
 
 // swiftlint:disable force_try identifier_name
 
-final class SuggestionJsonScenarioTests: XCTestCase {
+final class SuggestionJsonScenarioTests: LeakCheckableTestCase {
 
     override class func setUp() {
         StatisticsUserDefaults().atb = nil

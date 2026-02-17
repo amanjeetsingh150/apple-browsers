@@ -19,7 +19,7 @@
 
 import XCTest
 
-class UIFontExtensionTests: XCTestCase {
+class UIFontExtensionTests: LeakCheckableTestCase {
 
     private struct Constants {
         static let fontSize: CGFloat = 16

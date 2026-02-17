@@ -20,7 +20,7 @@
 import XCTest
 @testable import Core
 
-final class DebouncerTests: XCTestCase {
+final class DebouncerTests: LeakCheckableTestCase {
     private var sut: Debouncer!
 
     override func setUpWithError() throws {

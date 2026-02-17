@@ -21,7 +21,7 @@ import XCTest
 import VPN
 @testable import DuckDuckGo
 
-final class NetworkProtectionDNSSettingsViewModelTests: XCTestCase {
+final class NetworkProtectionDNSSettingsViewModelTests: LeakCheckableTestCase {
 
     var model: NetworkProtectionDNSSettingsViewModel!
     let userDefaults = UserDefaults(suiteName: "TestDefaults")!

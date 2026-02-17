@@ -21,7 +21,7 @@ import XCTest
 @testable import Core
 @testable import BrowserServicesKit
 
-class VariantManagerTests: XCTestCase {
+class VariantManagerTests: LeakCheckableTestCase {
 
     let testVariants = [
         VariantIOS(name: "mb", weight: 50, isIncluded: VariantIOS.When.always, features: []),

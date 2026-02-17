@@ -22,7 +22,7 @@ import Kingfisher
 @testable import Core
 @testable import DuckDuckGo
 
-class FaviconsHelperTests: XCTestCase {
+class FaviconsHelperTests: LeakCheckableTestCase {
     
     override func setUp() {
         super.setUp()

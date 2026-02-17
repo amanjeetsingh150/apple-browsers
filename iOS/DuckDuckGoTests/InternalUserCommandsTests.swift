@@ -52,7 +52,7 @@ class MockAppConfigurationFetching: AppConfigurationFetching {
 
 // MARK: - Tests
 
-class InternalUserCommandsTests: XCTestCase {
+class InternalUserCommandsTests: LeakCheckableTestCase {
     var decider: MockInternalUserDecider!
     private var presenter: MockPresenter.Type!
     var configFetch: MockAppConfigurationFetching!

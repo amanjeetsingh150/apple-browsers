@@ -21,7 +21,7 @@ import XCTest
 import PrivacyDashboard
 @testable import DuckDuckGo
 
-class DaxDialogsBrowsingSpecTests: XCTestCase {
+class DaxDialogsBrowsingSpecTests: LeakCheckableTestCase {
 
     func testWhenSiteIsOwnedByMajorTrackerIsFormattedThenContainsNamesDomainAndPercentage() {
         let majorTracker1 = "TestTracker1"

@@ -24,7 +24,7 @@ import PageRefreshMonitor
 import BrowserServicesKit
 import PixelKit
 
-final class PageRefreshMonitorExtensionTests: XCTestCase {
+final class PageRefreshMonitorExtensionTests: LeakCheckableTestCase {
 
     var captureMetric: String?
 

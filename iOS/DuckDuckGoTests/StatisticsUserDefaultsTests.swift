@@ -20,7 +20,7 @@
 import XCTest
 @testable import Core
 
-class StatisticsUserDefaultsTests: XCTestCase {
+class StatisticsUserDefaultsTests: LeakCheckableTestCase {
 
     struct Constants {
         static let userDefaultsSuit = "StatisticsUserDefaultsTestSuit"

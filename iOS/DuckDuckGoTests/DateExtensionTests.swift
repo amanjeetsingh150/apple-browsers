@@ -19,7 +19,7 @@
 
 import XCTest
 
-class DateExtensionTests: XCTestCase {
+class DateExtensionTests: LeakCheckableTestCase {
 
     func testWhenDatesAreSame() {
         let today: Date = Date()

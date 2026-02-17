@@ -20,7 +20,7 @@
 import XCTest
 @testable import Core
 
-final class ProductSurfaceTelemetryTests: XCTestCase {
+final class ProductSurfaceTelemetryTests: LeakCheckableTestCase {
 
     override func setUp() {
         super.setUp()

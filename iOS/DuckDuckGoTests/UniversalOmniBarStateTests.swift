@@ -21,7 +21,7 @@ import Foundation
 import XCTest
 @testable import DuckDuckGo
 
-final class UniversalOmniBarStateTests: XCTestCase {
+final class UniversalOmniBarStateTests: LeakCheckableTestCase {
 
     let enabledVoiceSearchHelper = MockVoiceSearchHelper(isSpeechRecognizerAvailable: true)
     let disabledVoiceSearchHelper = MockVoiceSearchHelper(isSpeechRecognizerAvailable: false)

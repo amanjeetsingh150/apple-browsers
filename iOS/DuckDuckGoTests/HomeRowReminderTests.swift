@@ -21,7 +21,7 @@ import XCTest
 @testable import Core
 @testable import DuckDuckGo
 
-class HomeRowReminderTests: XCTestCase {
+class HomeRowReminderTests: LeakCheckableTestCase {
 
     var storage: MockHomeRowReminderStorage!
 

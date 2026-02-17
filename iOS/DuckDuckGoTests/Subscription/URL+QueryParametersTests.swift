@@ -20,7 +20,7 @@
 import XCTest
 @testable import DuckDuckGo
 
-final class URLQueryParametersTests: XCTestCase {
+final class URLQueryParametersTests: LeakCheckableTestCase {
 
     func testHasQueryParameterWithMatchingNameAndValue() {
         let url = URL(string: "https://example.com?preventBackNavigation=true")!

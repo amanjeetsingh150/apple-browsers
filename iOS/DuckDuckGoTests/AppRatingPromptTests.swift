@@ -20,7 +20,7 @@
 import XCTest
 @testable import DuckDuckGo
 
-class AppRatingPromptTests: XCTestCase {
+class AppRatingPromptTests: LeakCheckableTestCase {
     
     fileprivate var stub: AppRatingPromptStorageStub!
 

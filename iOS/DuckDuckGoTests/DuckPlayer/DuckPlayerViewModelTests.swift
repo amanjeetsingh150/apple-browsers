@@ -24,7 +24,7 @@ import BrowserServicesKit
 @testable import Core
 import PrivacyConfig
 
-final class DuckPlayerViewModelTests: XCTestCase {
+final class DuckPlayerViewModelTests: LeakCheckableTestCase {
 
     var viewModel: DuckPlayerViewModel!
     var mockSettings: MockDuckPlayerSettings!

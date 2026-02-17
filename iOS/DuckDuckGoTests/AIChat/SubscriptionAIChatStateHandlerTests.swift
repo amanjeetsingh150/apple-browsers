@@ -20,7 +20,7 @@
 import XCTest
 @testable import DuckDuckGo
 
-final class SubscriptionAIChatStateHandlerTests: XCTestCase {
+final class SubscriptionAIChatStateHandlerTests: LeakCheckableTestCase {
 
     var sut: SubscriptionAIChatStateHandler!
 

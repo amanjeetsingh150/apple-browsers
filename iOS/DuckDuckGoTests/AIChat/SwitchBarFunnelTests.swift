@@ -22,7 +22,7 @@ import XCTest
 import Persistence
 import PersistenceTestingUtils
 
-final class SwitchBarFunnelTests: XCTestCase {
+final class SwitchBarFunnelTests: LeakCheckableTestCase {
     
     var mockStorage: MockKeyValueStore!
     var switchBarFunnel: SwitchBarFunnel!

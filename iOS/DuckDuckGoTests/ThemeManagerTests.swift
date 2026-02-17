@@ -22,7 +22,7 @@ import UIKit
 @testable import Core
 @testable import DuckDuckGo
 
-class ThemeManagerTests: XCTestCase {
+class ThemeManagerTests: LeakCheckableTestCase {
 
     private class MockRootController: UIViewController {
         var onDecorate: XCTestExpectation?

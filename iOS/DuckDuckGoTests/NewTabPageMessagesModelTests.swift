@@ -24,7 +24,7 @@ import DDGSync
 
 @testable import DuckDuckGo
 
-final class NewTabPageMessagesModelTests: XCTestCase {
+final class NewTabPageMessagesModelTests: LeakCheckableTestCase {
  
     private var messagesConfiguration: HomePageMessagesConfigurationMock!
     private var notificationCenter: NotificationCenter!

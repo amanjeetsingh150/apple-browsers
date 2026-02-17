@@ -21,7 +21,7 @@ import XCTest
 @testable import Core
 import ZIPFoundation
 
-final class ImportArchiveReaderTests: XCTestCase {
+final class ImportArchiveReaderTests: LeakCheckableTestCase {
 
     private var reader: ImportArchiveReader!
     private var mockFeatureFlagger: MockFeatureFlagger!

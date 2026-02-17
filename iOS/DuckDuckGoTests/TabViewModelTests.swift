@@ -23,7 +23,7 @@ import XCTest
 @testable import Core
 
 @MainActor
-final class TabViewModelTests: XCTestCase {
+final class TabViewModelTests: LeakCheckableTestCase {
 
     private var mockHistoryManager: MockHistoryManager!
     private var tab: Tab!

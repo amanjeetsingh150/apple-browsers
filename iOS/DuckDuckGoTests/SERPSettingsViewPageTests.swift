@@ -21,7 +21,7 @@ import XCTest
 
 @testable import DuckDuckGo
 
-final class SERPSettingsViewPageTests: XCTestCase {
+final class SERPSettingsViewPageTests: LeakCheckableTestCase {
 
     func testAppURLsAreConstructedCorrectly() {
         XCTAssertEqual(SERPSettingsView.Page.general.url.absoluteString, "https://duckduckgo.com/settings?ko=-1&embedded=1#general")

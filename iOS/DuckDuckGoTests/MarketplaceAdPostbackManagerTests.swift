@@ -22,7 +22,7 @@ import XCTest
 import BrowserServicesKit
 import Foundation
 
-class MarketplaceAdPostbackManagerTests: XCTestCase {
+class MarketplaceAdPostbackManagerTests: LeakCheckableTestCase {
     func testSendAppLaunchPostback_NewUser() {
         let mockReturnUserMeasurement = MockReturnUserMeasurement(isReturningUser: false)
         let mockUpdater = MockMarketplaceAdPostbackUpdater()

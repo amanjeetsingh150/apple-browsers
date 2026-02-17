@@ -25,7 +25,7 @@ import Core
 
 @testable import DuckDuckGo
 
-class DuckPlayerNavigationHandlerTests: XCTestCase {
+class DuckPlayerNavigationHandlerTests: LeakCheckableTestCase {
 
     var mockWebView: MockWebView!
     var mockAppSettings: AppSettingsMock!

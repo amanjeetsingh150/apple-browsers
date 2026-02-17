@@ -20,7 +20,7 @@
 import XCTest
 import Core
 
-class UIColorExtensionTests: XCTestCase {
+class UIColorExtensionTests: LeakCheckableTestCase {
 
     func testCombineRgbColor() {
         let ratio: CGFloat = 0.5

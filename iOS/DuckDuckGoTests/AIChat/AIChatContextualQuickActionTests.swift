@@ -20,7 +20,7 @@
 import XCTest
 @testable import DuckDuckGo
 
-final class AIChatContextualQuickActionTests: XCTestCase {
+final class AIChatContextualQuickActionTests: LeakCheckableTestCase {
 
     // MARK: - ID Tests
 

@@ -21,7 +21,7 @@ import XCTest
 import Core
 @testable import DuckDuckGo
 
-final class OnboardingPixelReporterTests: XCTestCase {
+final class OnboardingPixelReporterTests: LeakCheckableTestCase {
     private static let suiteName = "testing_onboarding_pixel_store"
     private var sut: OnboardingPixelReporter!
     private var statisticsStoreMock: MockStatisticsStore!

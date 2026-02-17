@@ -21,7 +21,7 @@ import XCTest
 @testable import Core
 @testable import BrowserServicesKit
 
-class ImproveOnboardingExperiment1Tests: XCTestCase {
+class ImproveOnboardingExperiment1Tests: LeakCheckableTestCase {
     
     func testWhenOnboardingExperimentVariantsHaveWeightThenItIsSetToOne() {
         let variantNames = [ "mq", "mr" ]

@@ -25,7 +25,7 @@ import BrowserServicesKit
 import Common
 import os.log
 
-class DomainMatchingReportTests: XCTestCase {
+class DomainMatchingReportTests: LeakCheckableTestCase {
     private var data = JsonTestDataLoader()
 
     func testRegularDomainMatchingRules() throws {

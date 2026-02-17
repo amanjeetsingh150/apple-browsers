@@ -22,7 +22,7 @@ import PrivacyConfig
 @testable import Core
 @testable import DuckDuckGo
 
-class ContentBlockerProtectionStoreTests: XCTestCase {
+class ContentBlockerProtectionStoreTests: LeakCheckableTestCase {
 
     func testWhenCheckingDomainsAreProtected_ThenUsesPersistedUnprotectedDomainList() throws {
         let configFile =

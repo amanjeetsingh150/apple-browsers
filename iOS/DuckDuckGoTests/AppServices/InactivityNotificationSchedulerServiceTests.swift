@@ -24,7 +24,7 @@ import XCTest
 
 final class MockNotificationServiceManager: NSObject, NotificationServiceManaging {}
 
-final class InactivityNotificationSchedulerServiceTests: XCTestCase {
+final class InactivityNotificationSchedulerServiceTests: LeakCheckableTestCase {
     
     var mockFeatureFlagger: MockFeatureFlagger!
     var mockPrivacyConfigManager: PrivacyConfigurationManagerMock!

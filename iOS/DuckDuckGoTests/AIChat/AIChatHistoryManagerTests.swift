@@ -23,7 +23,7 @@ import AIChat
 @testable import DuckDuckGo
 
 @MainActor
-final class AIChatHistoryManagerTests: XCTestCase {
+final class AIChatHistoryManagerTests: LeakCheckableTestCase {
 
     private var mockSuggestionsReader: MockAIChatSuggestionsReader!
     private var mockAIChatSettings: MockAIChatSettingsProvider!
